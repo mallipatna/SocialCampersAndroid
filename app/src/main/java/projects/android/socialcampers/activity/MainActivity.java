@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import projects.android.socialcampers.R;
+import projects.android.socialcampers.*;
 
 public class MainActivity extends Activity{
 

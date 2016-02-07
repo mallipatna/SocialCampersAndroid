@@ -2,6 +2,7 @@ package projects.android.socialcampers.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import projects.android.socialcampers.*;
 
 public class ParkInfoActivity extends Activity {
 

@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import projects.android.socialcampers.DBOperations.GetPark;
-import projects.android.socialcampers.R;
+//import projects.android.socialcampers.R;
 import projects.android.socialcampers.model.Park;
+import projects.android.socialcampers.*;
 
 public class ParkActivity extends Activity {
 
