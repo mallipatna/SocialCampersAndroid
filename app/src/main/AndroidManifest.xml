@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="projects.android.socialcampers">
+
+    <!-- To get information add permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Specify the usage of custom app to get hashKey in name tab -->
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/camp"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <!--android:theme="@style/AppTheme"-->
+
+        <!-- Required to connect the project to app on Facebook
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" /> -->
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name">
+            <!--android:theme="@style/AppTheme.NoActionBar" -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ParkActivity"
+            android:label="@string/title_activity_park">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
+        </activity>
+
+        <activity
+            android:name=".activity.ParkInfoActivity"
+            android:label="@string/title_activity_park_info"
+            android:parentActivityName=".activity.ParkActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <!--<meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ParkActivity" /> -->
+        </activity>
+
+        <!-- Add another activity to use Facebook login
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        -->
+    </application>
+
+</manifest>
