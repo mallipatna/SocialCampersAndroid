@@ -1,18 +1,20 @@
 package projects.android.socialcampers.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import projects.android.socialcampers.DBOperations.GetPark;
-//import projects.android.socialcampers.R;
 import projects.android.socialcampers.model.Park;
-import projects.android.socialcampers.*;
 
 public class ParkActivity extends Activity {
 
@@ -27,7 +29,6 @@ public class ParkActivity extends Activity {
             @Override
             protected List<String> doInBackground(Void... params) {
                 GetPark getPark = new GetPark();
-                //Credentials c = new Credentials();
                 List<Park> parksList = getPark.scanParks();
                 List<String> parkNameList = new ArrayList<>();
                 for (Park park : parksList) {
@@ -51,16 +52,30 @@ public class ParkActivity extends Activity {
                 parkNames);                             // Items to be displayed
 
         // Configure the list view
-        ListView listView = (ListView) findViewById(R.id.list_view_park);
+        final ListView listView = (ListView) findViewById(R.id.list_view_park);
         listView.setAdapter(adapter);
 
-        displayParkInfo();
+        // Get position of item clicked
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                String tag = listView.getAdapter().getItem(position).toString();
+                Toast.makeText(getApplicationContext(), tag , Toast.LENGTH_SHORT).show();
+                // Click on an element in view and it should go to another activity
+                Intent intent = new Intent(view.getContext(), ParkInfoActivity.class);
+                intent.putExtra("parkname",tag);
+                startActivity(intent);
+            }
+        });
+
+        //displayParkInfo();
     }
+
 
     // Click on an element in view and it should go to another activity
-    public void displayParkInfo(){
-
-    }
+    //public void displayParkInfo(){}
 
 
 }
