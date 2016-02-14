@@ -10,7 +10,7 @@ import com.amazonaws.internal.StaticCredentialsProvider;
 public class Credentials  {
 
     public AWSCredentialsProvider getCredentials() {
-        AWSCredentials credentials = new BasicAWSCredentials("AKIAJXONVB7TI2WMVR7A", "Bjn+bFv0PFmZXIuEdsc2CUbdDFrlQC5c2K4VA6TW");
+        AWSCredentials credentials = new BasicAWSCredentials("XXXX", "XXXX");
         AWSCredentialsProvider credentialsProvider = new StaticCredentialsProvider(credentials);
         return credentialsProvider;
     }

@@ -4,9 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import projects.android.socialcampers.DBOperations.GetPark;
+import projects.android.socialcampers.model.Park;
 
 public class ParkInfoActivity extends Activity {
 
@@ -88,6 +94,37 @@ public class ParkInfoActivity extends Activity {
         // Set the output to textview in layout
         TextView thingsToDoview = (TextView) findViewById(R.id.textView3);
         thingsToDoview.setText(thingsToDo);
+
+        // Populate list with campgrounds from DynamoDB
+        AsyncTask<Void,Void,List<String>> task = new AsyncTask<Void, Void, List<String>>() {
+            @Override
+            protected List<String> doInBackground(Void... params) {
+                GetPark getPark = new GetPark();
+                List<Park> parksList = getPark.scanParks();
+                List<String> parkNameList = new ArrayList<>();
+                for (Park park : parksList) {
+                    parkNameList.add(park.getParkName());
+                }
+                return parkNameList;
+            }
+        };
+
+        List<String> parkNames;
+        try {
+            parkNames = task.execute().get();
+        } catch (Exception e) {
+            parkNames = new ArrayList<>();
+        }
+
+        // Build an adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,                                   // Context for the activity
+                android.R.layout.simple_list_item_1,    // Layout to use (create)
+                parkNames);                             // Items to be displayed
+
+        // Configure the list view
+        final ListView listView = (ListView) findViewById(R.id.list_view_park);
+        listView.setAdapter(adapter);
 
     }
 
