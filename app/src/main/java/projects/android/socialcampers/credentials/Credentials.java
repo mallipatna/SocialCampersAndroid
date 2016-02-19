@@ -5,14 +5,22 @@ package projects.android.socialcampers.credentials;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.PropertiesCredentials;
 import com.amazonaws.internal.StaticCredentialsProvider;
+
+import java.io.File;
 
 public class Credentials  {
 
     public AWSCredentialsProvider getCredentials() {
-        AWSCredentials credentials = new BasicAWSCredentials("XXXX", "XXXX");
-        AWSCredentialsProvider credentialsProvider = new StaticCredentialsProvider(credentials);
-        return credentialsProvider;
+
+        try {
+            AWSCredentials credentials = new BasicAWSCredentials(AwsCred.awsAccessKey, AwsCred.awsSecretKey);
+            AWSCredentialsProvider credentialsProvider = new StaticCredentialsProvider(credentials);
+            return credentialsProvider;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // Create a DynamoDB client and object mapper
