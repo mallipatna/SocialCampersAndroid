@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -45,9 +47,13 @@ public class ParkInfoActivity extends Activity {
             about = e.getMessage();
         }
 
-        // Set the output to textview in layout
+        // Set the output to textview within ScrollView in layout
         TextView aboutview = (TextView) findViewById(R.id.textView1);
-        aboutview.setText(about);
+        //aboutview.setText(about);
+        aboutview.setMovementMethod(new ScrollingMovementMethod());
+        aboutview.append("\n"+about);
+        //ScrollView aboutScrollView = (ScrollView) findViewById(R.id.ScrollView1);
+        //aboutScrollView.addView(aboutview);
 
         // Get location for parkname
         AsyncTask<Void,Void,String> task2 = new AsyncTask<Void, Void, String>() {
@@ -115,8 +121,16 @@ public class ParkInfoActivity extends Activity {
         }
 
         // Set the output to textview in layout
+        //TextView thingsToDoview = (TextView) findViewById(R.id.textView4);
+        //thingsToDoview.setText(thingsToDo);
+
+        // Set the output to textview within ScrollView in layout
+        //ScrollView thingsToDoScrollView = (ScrollView) findViewById(R.id.ScrollView4);
         TextView thingsToDoview = (TextView) findViewById(R.id.textView4);
-        thingsToDoview.setText(thingsToDo);
+        thingsToDoview.setMovementMethod(new ScrollingMovementMethod());
+        thingsToDoview.append("\n" + thingsToDo);
+        //thingsToDoview.setText(thingsToDo);
+        //thingsToDoScrollView.addView(thingsToDoview);
 
         // Get places_to_go for parkname
         AsyncTask<Void,Void,String> task5 = new AsyncTask<Void, Void, String>() {
@@ -138,8 +152,12 @@ public class ParkInfoActivity extends Activity {
         }
 
         // Set the output to textview in layout
+        //ScrollView placesToGoScrollview = (ScrollView) findViewById(R.id.ScrollView5);
         TextView placesToGoview = (TextView) findViewById(R.id.textView5);
-        placesToGoview.setText(placesToGo);
+        placesToGoview.setMovementMethod(new ScrollingMovementMethod());
+        placesToGoview.append("\n"+placesToGo);
+        //placesToGoview.setText(placesToGo);
+        //placesToGoScrollview.addView(placesToGoview);
 
 
         // Populate list with campgrounds from DynamoDB
