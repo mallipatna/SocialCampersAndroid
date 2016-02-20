@@ -58,9 +58,11 @@ public class ParkActivity extends Activity {
         // Get position of item clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            // Click on an element in view and it should go to another activity
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+
                 String tag = listView.getAdapter().getItem(position).toString();
                 Toast.makeText(getApplicationContext(), tag , Toast.LENGTH_SHORT).show();
                 // Click on an element in view and it should go to another activity
@@ -69,13 +71,5 @@ public class ParkActivity extends Activity {
                 startActivity(intent);
             }
         });
-
-        //displayParkInfo();
     }
-
-
-    // Click on an element in view and it should go to another activity
-    //public void displayParkInfo(){}
-
-
 }

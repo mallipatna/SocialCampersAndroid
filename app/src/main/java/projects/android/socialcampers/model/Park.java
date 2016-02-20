@@ -11,9 +11,11 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.*;
 public class Park {
 
     private String parkName;
+    private String about;
     private String location;
     private String best_time_to_visit;
     private String things_to_do;
+    private String places_to_go;
 
     // hash key =  Primary key.
     @DynamoDBHashKey(attributeName = "parkName")
@@ -24,8 +26,19 @@ public class Park {
         this.parkName = parkName;
     }
 
+    @DynamoDBAttribute(attributeName = "about")
+    public String getAbout()
+    {
+        return about;
+    }
+    public void setAbout(String about)
+    {
+        this.about = about;
+    }
+
     @DynamoDBAttribute(attributeName = "location")
-    public String getLocation(){
+    public String getLocation()
+    {
         return location;
     }
     public void setLocation(String location){
@@ -48,4 +61,12 @@ public class Park {
         this.things_to_do = things_to_do;
     }
 
+    @DynamoDBAttribute(attributeName = "placesToGo")
+    public String getPlaces_to_go(){
+        return places_to_go;
+    }
+
+    public void setPlaces_to_go(String places_to_go) {
+        this.places_to_go = places_to_go;
+    }
 }

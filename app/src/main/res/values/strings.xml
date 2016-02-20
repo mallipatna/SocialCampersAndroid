@@ -8,9 +8,11 @@
     <string name="fb_login">Log in with Facebook</string>
     <string name="title_activity_park"><b>List of parks in the app</b></string>
     <string name="title_activity_park_info">Park Information</string>
+    <string name="about"><b>About</b></string>
     <string name="park_loc"><b>Location</b></string>
     <string name="best_time_visit"><b>Best Time to Visit</b></string>
     <string name="to_do"><b>Things to do</b></string>
+    <string name="places_to_go"><b>Places to go</b></string>
     <string name="campgrounds_list"><b>List of Campgrounds in the park</b></string>
     <string name="title_activity_main">MainActivity</string>
 </resources>
