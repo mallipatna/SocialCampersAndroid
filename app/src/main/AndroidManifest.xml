@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- Required to connect the project to app on Facebook
+        <!-- Required to connect the project to app on Facebook -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/app_id" /> -->
+            android:value="@string/app_id" />
 
         <activity
             android:name=".MainActivity"
@@ -24,37 +24,35 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ParkActivity"
             android:label="@string/title_activity_park">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
         </activity>
 
         <activity
             android:name=".ParkInfoActivity"
             android:label="@string/title_activity_park_info"
-            android:parentActivityName="ParkActivity"
+            android:parentActivityName=".ParkActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <!--<meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ParkActivity" /> -->
         </activity>
 
-        <!-- Add another activity to use Facebook login
+        <activity
+            android:name=".CampgroundInfoActivity"
+            android:label="@string/campground_info"
+            android:parentActivityName=".CampgroundInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <!-- Add another activity to use Facebook login -->
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        -->
     </application>
 
 </manifest>

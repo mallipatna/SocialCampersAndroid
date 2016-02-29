@@ -5,15 +5,20 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import projects.android.socialcampers.DBOperations.GetCampground;
 import projects.android.socialcampers.DBOperations.GetPark;
+import projects.android.socialcampers.model.Campground;
 import projects.android.socialcampers.model.Park;
 
 public class ParkInfoActivity extends Activity {
@@ -161,36 +166,55 @@ public class ParkInfoActivity extends Activity {
 
 
         // Populate list with campgrounds from DynamoDB
-       /* AsyncTask<Void,Void,List<String>> task = new AsyncTask<Void, Void, List<String>>() {
+       AsyncTask<Void,Void,List<String>> task = new AsyncTask<Void, Void, List<String>>() {
             @Override
             protected List<String> doInBackground(Void... params) {
-                GetPark getPark = new GetPark();
-                List<Park> parksList = getPark.scanParks();
-                List<String> parkNameList = new ArrayList<>();
-                for (Park park : parksList) {
-                    parkNameList.add(park.getParkName());
+                //GetPark getPark = new GetPark();
+                GetCampground getCampground = new GetCampground();
+                List<Campground> campgroundList = getCampground.scanCampgrounds(parkname);
+                List<String> campgroundNameList = new ArrayList<>();
+                for (Campground campground: campgroundList){
+                    campgroundNameList.add(campground.getCampgroundName());
                 }
-                return parkNameList;
+                //List<Park> parksList = getPark.scanParks();
+                return campgroundNameList;
             }
         };
 
-        List<String> parkNames;
-        try {
-            parkNames = task.execute().get();
-        } catch (Exception e) {
-            parkNames = new ArrayList<>();
+        List<String> campgroundNames;
+        try{
+            campgroundNames = task.execute().get();
+        } catch (Exception e){
+            campgroundNames = new ArrayList<>();
         }
 
         // Build an adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,                                   // Context for the activity
                 android.R.layout.simple_list_item_1,    // Layout to use (create)
-                parkNames);                             // Items to be displayed
+                campgroundNames);                    // Items to be displayed
 
         // Configure the list view
-        final ListView listView = (ListView) findViewById(R.id.list_view_park);
+        final ListView listView = (ListView) findViewById(R.id.lv_campgrounds_list);
         listView.setAdapter(adapter);
-        */
-    }
+
+        // Get position of item clicked
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        // Click on an element in view and it should go to another activity
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            String tag1 = listView.getAdapter().getItem(position).toString();
+            Toast.makeText(getApplicationContext(), tag1+":"+parkname, Toast.LENGTH_SHORT).show();
+            // Click on an element in view and it should go to another activity
+            Intent intent = new Intent(view.getContext(), CampgroundInfoActivity.class);
+            intent.putExtra("campgroundname",tag1);
+            intent.putExtra("parkname",parkname);
+            startActivity(intent);
+        }
+    });
+
+}
 
 }

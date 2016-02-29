@@ -1,15 +1,9 @@
 package projects.android.socialcampers.model;
 
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBAttribute;
-import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
-import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBScanExpression;
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBHashKey;
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBRangeKey;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
-import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.PaginatedScanList;
-import com.amazonaws.regions.Region;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
-
-import java.util.List;
 
 /**
  * Created by nandinivishwas on 08/02/16.
@@ -18,37 +12,40 @@ import java.util.List;
 @DynamoDBTable(tableName = "Campground")
 public class Campground {
 
-    /* ToDo: Set up a data model for Campground, info to include are campground name, number of campsites,
-    campgroundId, campgroundName,datesOpen,numberCampsites, bathroomType,  dumpStation, fee,  reserveSite, rvHookup, shower
+    /*
+    campgroundId, campgroundName,datesOpen,numberCampsites, bathroomType,  dumpStation, fee,
+    reserveSite, rvHookup, shower
     */
 
-    private Integer campgroundId;
+    //private Integer campgroundId;
     private String campgroundName;
+    private String parkName;
     private String datesOpen;
-    private Integer numCampsites;
+    private int numCampsites;
     private String bathroomType;
-    private Boolean dumpStation;
-    private Integer fee;
-    private Boolean shower;
-    private Boolean reserveSite;
-    private String rvHookup;
+    private boolean dumpStation;
+    private double fee;
+    private boolean shower;
+    private boolean reserveSite;
+    private boolean rvHookup;
 
-    @DynamoDBAttribute(attributeName = "campgroundId")
-    public Integer getCampgroundId() {
-        return campgroundId;
-    }
-
-    public void setCampgroundId(Integer campgroundId) {
-        this.campgroundId = campgroundId;
-    }
-
-    @DynamoDBAttribute(attributeName = "campgroundName")
+    @DynamoDBRangeKey(attributeName = "campgroundName")
     public String getCampgroundName() {
         return campgroundName;
     }
 
     public void setCampgroundName(String campgroundName) {
         this.campgroundName = campgroundName;
+    }
+
+    @DynamoDBHashKey(attributeName = "parkName")
+    public String getParkName()
+    {
+        return parkName;
+    }
+
+    public void setParkName(String parkName){
+        this.parkName = parkName;
     }
 
     @DynamoDBAttribute(attributeName = "datesOpen")
@@ -61,11 +58,11 @@ public class Campground {
     }
 
     @DynamoDBAttribute(attributeName = "numberCampsites")
-    public Integer getNumCampsites() {
+    public int getNumCampsites() {
         return numCampsites;
     }
 
-    public void setNumCampsites(Integer numCampsites) {
+    public void setNumCampsites(int numCampsites) {
         this.numCampsites = numCampsites;
     }
 
@@ -79,47 +76,47 @@ public class Campground {
     }
 
     @DynamoDBAttribute(attributeName = "dumpStation")
-    public Boolean getDumpStation() {
+    public boolean getDumpStation() {
         return dumpStation;
     }
 
-    public void setDumpStation(Boolean dumpStation) {
+    public void setDumpStation(boolean dumpStation) {
         this.dumpStation = dumpStation;
     }
 
     @DynamoDBAttribute(attributeName = "fee")
-    public Integer getFee() {
+    public double getFee() {
         return fee;
     }
 
-    public void setFee(Integer fee) {
+    public void setFee(double fee) {
         this.fee = fee;
     }
 
     @DynamoDBAttribute(attributeName = "shower")
-    public Boolean getShower() {
+    public boolean getShower() {
         return shower;
     }
 
-    public void setShower(Boolean shower) {
+    public void setShower(boolean shower) {
         this.shower = shower;
     }
 
     @DynamoDBAttribute(attributeName = "reserveSite")
-    public Boolean getReserveSite() {
+    public boolean getReserveSite() {
         return reserveSite;
     }
 
-    public void setReserveSite(Boolean reserveSite) {
+    public void setReserveSite(boolean reserveSite) {
         this.reserveSite = reserveSite;
     }
 
     @DynamoDBAttribute(attributeName = "rvHookup")
-    public String getRvHookup() {
+    public boolean getRvHookup() {
         return rvHookup;
     }
 
-    public void setRvHookup(String rvHookup) {
+    public void setRvHookup(boolean rvHookup) {
         this.rvHookup = rvHookup;
     }
 }

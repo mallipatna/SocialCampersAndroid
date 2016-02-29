@@ -30,24 +30,18 @@
         android:scrollIndicators="right">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="@string/about"
-            android:id="@+id/tv_about"
-            android:layout_alignTop="@+id/textView1"
-            android:layout_toLeftOf="@+id/tv_campgrounds_list"
-            android:layout_toStartOf="@+id/tv_campgrounds_list"
-            android:layout_marginTop="5dp" />
-
-        <TextView
-            android:layout_width="250dp"
-            android:layout_height="130dp"
+            android:layout_width="500dp"
+            android:layout_height="50dp"
             android:id="@+id/textView1"
             android:scrollbars="vertical"
+            android:gravity="top"
             android:layout_marginTop="58dp"
-            android:layout_alignParentTop="true"
+            android:layout_alignParentTop="false"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="false"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
 
         <!--
         <ScrollView
@@ -75,39 +69,34 @@
             android:layout_height="30dp"
             android:text="@string/park_loc"
             android:id="@+id/tv_park_loc"
-            android:layout_below="@+id/textView1"
-            android:layout_alignLeft="@+id/tv_best_time_visit"
-            android:layout_alignStart="@+id/tv_best_time_visit" />
+            android:layout_alignTop="@+id/textView2"
+            android:layout_marginLeft="10dp" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
             android:id="@+id/textView2"
             android:layout_below="@+id/textView1"
             android:layout_marginBottom="5dp"
-            android:layout_alignLeft="@+id/textView1"
-            android:layout_alignStart="@+id/textView1" />
+            android:layout_marginLeft="150dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="@string/best_time_visit"
             android:id="@+id/tv_best_time_visit"
-            android:layout_alignTop="@+id/textView3"
-            android:layout_toLeftOf="@+id/textView3"
-            android:layout_toStartOf="@+id/textView3" />
+            android:layout_below="@+id/textView2"
+            android:layout_alignLeft="@+id/tv_park_loc"
+            android:layout_alignStart="@+id/tv_park_loc" />
 
         <TextView
-            android:layout_width="250dp"
-            android:layout_height="30dp"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
             android:id="@+id/textView3"
             android:layout_below="@+id/textView2"
-            android:layout_alignRight="@+id/textView2"
-            android:layout_alignEnd="@+id/textView2"
             android:layout_marginBottom="5dp"
             android:layout_alignLeft="@+id/textView2"
-            android:layout_alignStart="@+id/textView2"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginRight="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -117,19 +106,19 @@
             android:layout_alignTop="@+id/textView4"
             android:layout_alignLeft="@+id/tv_best_time_visit"
             android:layout_alignStart="@+id/tv_best_time_visit"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="15dp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
             android:id="@+id/textView4"
             android:scrollbars="vertical"
             android:layout_below="@+id/textView3"
             android:layout_alignRight="@+id/textView2"
             android:layout_alignEnd="@+id/textView2"
             android:layout_marginBottom="5dp"
-            android:layout_alignLeft="@+id/textView3"
-            android:layout_alignStart="@+id/textView3" />
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2" />
 
         <!--
 
@@ -161,14 +150,14 @@
             android:layout_below="@+id/textView4"
             android:layout_alignLeft="@+id/tv_to_do"
             android:layout_alignStart="@+id/tv_to_do"
-            android:layout_alignRight="@+id/tv_park_loc"
-            android:layout_alignEnd="@+id/tv_park_loc"
-            android:layout_marginTop="5dp" />
+            android:layout_alignRight="@+id/tv_best_time_visit"
+            android:layout_alignEnd="@+id/tv_best_time_visit"
+            android:layout_marginTop="15dp" />
 
 
         <TextView
             android:layout_width="180dp"
-            android:layout_height="100dp"
+            android:layout_height="60dp"
             android:id="@+id/textView5"
             android:scrollbars="vertical"
             android:layout_below="@+id/textView4"
@@ -203,7 +192,7 @@
         <!-- Text view and list view to list campgrounds-->
         <TextView
             android:layout_width="260dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:text="@string/campgrounds_list"
             android:id="@+id/tv_campgrounds_list"
             android:layout_marginTop="5dp"
@@ -217,8 +206,10 @@
             android:id="@+id/lv_campgrounds_list"
             android:layout_below="@+id/tv_campgrounds_list"
             android:layout_alignRight="@+id/textView5"
-            android:layout_alignEnd="@+id/textView5"
-            android:layout_alignParentBottom="true" />
+            android:layout_alignParentBottom="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_marginLeft="15dp"
+            style="@style/Base.TextAppearance.AppCompat.Button" />
 
 
 

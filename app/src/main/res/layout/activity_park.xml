@@ -26,13 +26,27 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_height="250dp"
         android:id="@+id/list_view_park"
-        android:layout_gravity="center_horizontal|center"
         android:scrollbars="vertical"
         android:clickable="true"
-        android:contextClickable="true">
+        android:contextClickable="true"
+        android:layout_marginTop="50dp">
     </ListView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_token"
+        android:layout_marginTop="320dp" />
+
+    <!-- <ListView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="250dp"></ListView>
+    -->
 
 </FrameLayout>
 

@@ -2,13 +2,26 @@ package projects.android.socialcampers.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
+import com.facebook.Profile;
+import com.facebook.internal.Utility;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +36,38 @@ public class ParkActivity extends Activity {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_park);
+
+        final Intent intent = getIntent();
+        final String userId = intent.getExtras().getString("userID");
+        final AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        final String authToken = intent.getExtras().getString("authToken");
+
+
+
+        TextView tv = (TextView) findViewById(R.id.id_token);
+        //tv.setText(userId+"\n"+authToken);
+
+        Profile profile = Profile.getCurrentProfile();
+
+        if(profile!=null){
+            tv.setText("Logged user: " + profile.getFirstName() + " " + profile.getLastName());
+        }
+
+        /* make the API call */
+        new GraphRequest(
+                AccessToken.getCurrentAccessToken(),
+                "/{userId}/friendlists",
+                null,
+                HttpMethod.GET,
+                new GraphRequest.Callback() {
+                    public void onCompleted(GraphResponse response) {
+                        /* handle the result */
+                        
+                    }
+                }
+        ).executeAsync();
+
+        // TODO: Populate list with user's friends from Facebook
 
         // Populate list with parks from DynamoDB
         AsyncTask<Void,Void,List<String>> task = new AsyncTask<Void, Void, List<String>>() {

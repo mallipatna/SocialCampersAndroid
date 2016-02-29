@@ -16,17 +16,10 @@ import projects.android.socialcampers.model.Park;
  * Created by nandinivishwas on 06/02/16.
  */
 
-public class GetPark {
-
-    Credentials c = new Credentials();
-
-    // Create a DynamoDB client and object mapper
+public class GetPark extends BaseDdbOperation {
 
     // Get the list of all parks in the park table
     public List<Park> scanParks() {
-        AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(c.getCredentials());
-        DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
-        ddbClient.setRegion(Region.getRegion(Regions.US_WEST_2));
         PaginatedScanList<Park> result = mapper.scan(Park.class, new DynamoDBScanExpression());
         return result;
     }

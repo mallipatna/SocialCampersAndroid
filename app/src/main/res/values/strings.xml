@@ -5,7 +5,7 @@
     <string name="app_id">1569799286600648</string>
     <string name="click_continue">CLICK TO CONTINUE</string>
     <string name="hello">Hello!</string>
-    <string name="fb_login">Log in with Facebook</string>
+    <string name="fb_login"><b>Log in with Facebook</b></string>
     <string name="title_activity_park"><b>List of parks in the app</b></string>
     <string name="title_activity_park_info">Park Information</string>
     <string name="about"><b>About</b></string>
@@ -15,4 +15,6 @@
     <string name="places_to_go"><b>Places to go</b></string>
     <string name="campgrounds_list"><b>List of Campgrounds in the park</b></string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_campground_info">CampgroundInfoActivity</string>
+    <string name="campground_info">Campground Information</string>
 </resources>
