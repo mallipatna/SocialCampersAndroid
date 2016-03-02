@@ -8,19 +8,19 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="90dp"
         android:id="@+id/campground_list_name"
         android:background="?attr/colorPrimary"
         android:textAppearance="?android:attr/textAppearanceLarge"
-
-        >
+        android:gravity="center">
     </TextView>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="510dp"
-        android:layout_marginTop="60dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp">
 
         <ListView
             android:layout_width="fill_parent"

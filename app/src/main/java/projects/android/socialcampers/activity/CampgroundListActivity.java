@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,6 +27,9 @@ public class CampgroundListActivity extends Activity {
         // Get parkname from prev (ParkInfo) Activity
         Intent intent = getIntent();
         final String parkname = intent.getExtras().getString("parkname");
+
+        TextView textView = (TextView) findViewById(R.id.campground_list_name);
+        textView.setText("List of campgrounds in\n" + parkname);
 
         // Populate list with campgrounds from DynamoDB
         AsyncTask<Void, Void, List<String>> task = new AsyncTask<Void, Void, List<String>>() {
