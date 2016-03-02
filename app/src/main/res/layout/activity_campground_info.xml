@@ -15,10 +15,11 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/campground_name_in_info"
+            android:layout_height="30dp"
+            android:id="@+id/campground_name_info"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textAlignment="center"/>
+            android:background="?attr/colorPrimary"
+            android:textAlignment="center" />
 
     </android.support.v7.widget.Toolbar>
 
@@ -27,14 +28,194 @@
         android:layout_height="match_parent"
         android:layout_marginTop="55dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:id="@+id/campground_info"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/campground_info"
-        android:background="?attr/colorPrimary"
-        android:textAlignment="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/park_name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="?attr/colorPrimary"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Dates of Operation"
+            android:id="@+id/label_dates_open"
+            android:layout_below="@+id/park_name"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tv_dates_open"
+            android:layout_alignTop="@+id/label_dates_open"
+            android:layout_toRightOf="@+id/label_dates_open"
+            android:layout_marginLeft="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Number of campsites"
+            android:id="@+id/label_num_campsites"
+            android:layout_below="@+id/label_dates_open"
+            android:layout_alignLeft="@+id/label_dates_open"
+            android:layout_alignStart="@+id/label_dates_open"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tv_num_campsites"
+            android:layout_alignTop="@+id/label_num_campsites"
+            android:layout_alignLeft="@+id/tv_dates_open"
+            android:layout_alignStart="@+id/tv_dates_open" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Fee"
+            android:id="@+id/label_fee"
+            android:layout_below="@+id/label_num_campsites"
+            android:layout_alignLeft="@+id/label_num_campsites"
+            android:layout_alignStart="@+id/label_num_campsites"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tv_fee"
+            android:layout_alignTop="@+id/label_fee"
+            android:layout_alignRight="@+id/tv_num_campsites"
+            android:layout_alignEnd="@+id/tv_num_campsites" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Reservations"
+            android:id="@+id/label_reservations"
+            android:layout_below="@+id/label_fee"
+            android:layout_alignLeft="@+id/label_fee"
+            android:layout_alignStart="@+id/label_fee"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tv_reservations"
+            android:layout_alignTop="@+id/label_reservations"
+            android:layout_alignLeft="@+id/tv_fee"
+            android:layout_alignStart="@+id/tv_fee" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Bathroom type"
+            android:id="@+id/label_bath_type"
+            android:layout_below="@+id/label_reservations"
+            android:layout_alignLeft="@+id/label_reservations"
+            android:layout_alignStart="@+id/label_reservations"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tv_bath_type"
+            android:layout_alignTop="@+id/label_bath_type"
+            android:layout_alignLeft="@+id/tv_reservations"
+            android:layout_alignStart="@+id/tv_reservations" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Shower"
+            android:id="@+id/label_shower"
+            android:layout_below="@+id/label_bath_type"
+            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/label_bath_type" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tv_shower"
+            android:layout_alignTop="@+id/label_shower"
+            android:layout_alignLeft="@+id/tv_bath_type"
+            android:layout_alignStart="@+id/tv_bath_type" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="RV Hookup"
+            android:id="@+id/label_rv_hookup"
+            android:layout_below="@+id/label_shower"
+            android:layout_alignRight="@+id/label_num_campsites"
+            android:layout_alignEnd="@+id/label_num_campsites"
+            android:layout_alignLeft="@+id/label_shower"
+            android:layout_alignStart="@+id/label_shower"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/textView"
+            android:layout_alignTop="@+id/label_rv_hookup"
+            android:layout_alignLeft="@+id/tv_shower"
+            android:layout_alignStart="@+id/tv_shower" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Dump Station"
+            android:id="@+id/label_dump_station"
+            android:layout_below="@+id/label_rv_hookup"
+            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/label_rv_hookup"
+            android:layout_alignStart="@id/label_rv_hookup" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tv_dump_station"
+            android:layout_alignTop="@+id/label_dump_station"
+            android:layout_alignRight="@+id/textView"
+            android:layout_alignEnd="@+id/textView" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CLICK TO VIEW REVIEWS"
+            android:id="@+id/button_view_review"
+            android:layout_marginBottom="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
 
     </RelativeLayout>
 

@@ -205,12 +205,12 @@ public class ParkInfoActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            String tag1 = listView.getAdapter().getItem(position).toString();
-            Toast.makeText(getApplicationContext(), tag1+":"+parkname, Toast.LENGTH_SHORT).show();
             // Click on an element in view and it should go to another activity
+            String tag1 = listView.getAdapter().getItem(position).toString();
             Intent intent = new Intent(view.getContext(), CampgroundInfoActivity.class);
             intent.putExtra("campgroundname",tag1);
             intent.putExtra("parkname",parkname);
+            Toast.makeText(getApplicationContext(), tag1+":"+parkname, Toast.LENGTH_SHORT).show();
             startActivity(intent);
         }
     });

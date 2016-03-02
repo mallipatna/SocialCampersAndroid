@@ -3,6 +3,8 @@ package projects.android.socialcampers.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -21,6 +23,7 @@ public class MainActivity extends Activity{
     private CallbackManager callbackManager;
 
     // Called when the activity is first created
+
     @Override
     public void onCreate(Bundle savedInstance) {
 
@@ -36,13 +39,27 @@ public class MainActivity extends Activity{
         fb_login = (LoginButton) findViewById(R.id.fb_login);
 
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
-        if(accessToken!=null) {
-            String userID = AccessToken.getCurrentAccessToken().getUserId();
-            String authToken = AccessToken.getCurrentAccessToken().getToken();
-            Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
-            intent.putExtra("userID", userID);
-            intent.putExtra("authToken", authToken);
-            startActivity(intent);
+
+        final Button btnClick = (Button) findViewById(R.id.button_click_continue);
+
+        if(accessToken==null){
+            btnClick.setVisibility(View.INVISIBLE);
+        }
+
+        else {
+            btnClick.setVisibility(View.VISIBLE);
+            btnClick.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String userID = AccessToken.getCurrentAccessToken().getUserId();
+                    String authToken = AccessToken.getCurrentAccessToken().getToken();
+                    Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
+                    intent.putExtra("userID", userID);
+                    intent.putExtra("authToken", authToken);
+                    startActivity(intent);
+                }
+            });
+
         }
 
         fb_login.setReadPermissions("me");
@@ -56,14 +73,16 @@ public class MainActivity extends Activity{
                 String userID = loginResult.getAccessToken().getUserId();
                 String authToken = loginResult.getAccessToken().getToken();
 
+                //Profile profile1 = Profile.getCurrentProfile();
+                //login_result.setText("Welcome "+ profile1.getFirstName()+ "!");
+
+                btnClick.setClickable(true);
+
                 Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
                 intent.putExtra("userID",userID);
                 intent.putExtra("authToken",authToken);
                 startActivity(intent);
-                /*login_result.setText("User ID: "
-                                    + userID
-                                    + "\nAuthToken: "
-                                    + authToken); */
+
             }
 
             @Override
@@ -84,17 +103,5 @@ public class MainActivity extends Activity{
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
-        /*
-        Button btnClick = (Button) findViewById(R.id.fb_login);
-        btnClick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ParkActivity.class);
-                startActivityForResult(intent, 0);
-            }
-        });
-        */
-
 
 }
