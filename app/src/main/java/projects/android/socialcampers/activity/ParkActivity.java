@@ -105,9 +105,9 @@ public class ParkActivity extends Activity {
                 String tag = listView.getAdapter().getItem(position).toString();
                 Toast.makeText(getApplicationContext(), tag , Toast.LENGTH_SHORT).show();
                 // Click on an element in view and it should go to another activity
-                Intent intent = new Intent(view.getContext(), ParkInfoActivity.class);
-                intent.putExtra("parkname",tag);
-                startActivity(intent);
+                Intent intent1 = new Intent(view.getContext(), ParkInfoActivity.class);
+                intent1.putExtra("parkname",tag);
+                startActivity(intent1);
             }
         });
     }

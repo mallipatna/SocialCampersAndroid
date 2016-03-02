@@ -25,7 +25,6 @@ public class CampgroundInfoActivity extends Activity {
         tv_campground_name.setText(campgroundName + " Campground Information");
 
 
-
     }
 
 }

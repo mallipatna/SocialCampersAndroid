@@ -24,28 +24,23 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ParkActivity"
-            android:label="@string/title_activity_park">
-        </activity>
-
+            android:label="@string/title_activity_park"></activity>
         <activity
             android:name=".ParkInfoActivity"
             android:label="@string/title_activity_park_info"
             android:parentActivityName=".ParkActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".CampgroundInfoActivity"
             android:label="@string/campground_info"
             android:parentActivityName=".CampgroundInfoActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <!-- Add another activity to use Facebook login -->
         <activity
@@ -53,6 +48,10 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".CampgroundListActivity"
+            android:label="@string/title_activity_campground_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

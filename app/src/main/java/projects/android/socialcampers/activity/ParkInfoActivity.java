@@ -8,6 +8,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -27,7 +28,9 @@ public class ParkInfoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_park_info);
-        Intent intent = getIntent();
+
+        // Get parkname from prev (Park) Activity
+        final Intent intent = getIntent();
         final String parkname = intent.getExtras().getString("parkname");
 
         TextView parknameininfo = (TextView) findViewById(R.id.park_name_in_info);
@@ -165,8 +168,22 @@ public class ParkInfoActivity extends Activity {
         //placesToGoScrollview.addView(placesToGoview);
 
 
+        Button button = (Button) findViewById(R.id.button_view_campgrounds_list);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent1 = new Intent(getApplicationContext(), CampgroundListActivity.class);
+                intent1.putExtra("parkname", parkname);
+                Toast.makeText(getApplicationContext(), parkname, Toast.LENGTH_SHORT).show();
+                startActivity(intent1);
+
+            }
+        });
+
+
         // Populate list with campgrounds from DynamoDB
-       AsyncTask<Void,Void,List<String>> task = new AsyncTask<Void, Void, List<String>>() {
+      /* AsyncTask<Void,Void,List<String>> task = new AsyncTask<Void, Void, List<String>>() {
             @Override
             protected List<String> doInBackground(Void... params) {
                 //GetPark getPark = new GetPark();
@@ -206,15 +223,15 @@ public class ParkInfoActivity extends Activity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             // Click on an element in view and it should go to another activity
-            String tag1 = listView.getAdapter().getItem(position).toString();
-            Intent intent = new Intent(view.getContext(), CampgroundInfoActivity.class);
-            intent.putExtra("campgroundname",tag1);
+            Intent intent = new Intent(view.getContext(), CampgroundListActivity.class);
             intent.putExtra("parkname",parkname);
-            Toast.makeText(getApplicationContext(), tag1+":"+parkname, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), parkname, Toast.LENGTH_SHORT).show();
             startActivity(intent);
         }
     });
 
-}
+    */
+
+    }
 
 }

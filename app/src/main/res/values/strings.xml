@@ -17,4 +17,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_campground_info">CampgroundInfoActivity</string>
     <string name="campground_info">Campground Information</string>
+    <string name="campgrounds_list_button">CLICK TO VIEW LIST OF CAMPGROUNDS</string>
+    <string name="title_activity_campground_list">campground_list</string>
 </resources>
