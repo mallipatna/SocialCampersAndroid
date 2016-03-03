@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Social Campers</string>
+    <string name="app_name">SOCIAL CAMPERS</string>
     <string name="action_settings">Settings</string>
     <!-- Required for Facebook to identify the app-->
     <string name="app_id">1569799286600648</string>
     <string name="click_continue">CLICK TO CONTINUE</string>
     <string name="hello">Hello!</string>
     <string name="fb_login"><b>Log in with Facebook</b></string>
-    <string name="title_activity_park">List of parks in the app</string>
+    <string name="title_activity_park">LIST OF PARKS</string>
     <string name="title_activity_park_info">Park Information</string>
     <string name="about"><b>About</b></string>
     <string name="park_loc"><b>Location</b></string>

@@ -30,7 +30,7 @@ public class CampgroundListActivity extends Activity {
         final String username = intent.getExtras().getString("username");
 
         TextView textView = (TextView) findViewById(R.id.campground_list_name);
-        textView.setText("List of campgrounds in\n" + parkname);
+        textView.setText("LIST OF CAMPGROUNDS IN\n" + parkname.toUpperCase());
 
         // Populate list with campgrounds from DynamoDB
         AsyncTask<Void, Void, List<String>> task = new AsyncTask<Void, Void, List<String>>() {

@@ -30,10 +30,10 @@ public class ReviewActivity extends Activity {
         final String username = intent.getExtras().getString("username");
 
         TextView textView_parkName = (TextView) findViewById(R.id.park_name_in_review);
-        textView_parkName.setText(parkName);
+        textView_parkName.setText(parkName.toUpperCase());
 
         TextView textView_campgroundName = (TextView) findViewById(R.id.campground_name_in_review);
-        textView_campgroundName.setText(campgroundName + " Campground");
+        textView_campgroundName.setText(campgroundName.toUpperCase() + " CAMPGROUND");
 
         final String parkCampgroundName = parkName + ":" + campgroundName;
 

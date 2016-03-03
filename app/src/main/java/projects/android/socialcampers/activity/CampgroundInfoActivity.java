@@ -23,10 +23,10 @@ public class CampgroundInfoActivity extends Activity {
         final String username = intent.getExtras().getString("username");
 
         TextView tv_parkName = (TextView) findViewById(R.id.park_name);
-        tv_parkName.setText(parkName);
+        tv_parkName.setText(parkName.toUpperCase());
 
         TextView tv_campground_name = (TextView) findViewById(R.id.campground_name_info);
-        tv_campground_name.setText(campgroundName + " Campground Information");
+        tv_campground_name.setText(campgroundName.toUpperCase() + " CAMPGROUND DETAILS");
 
         // Get datesOpen from GetCampground
         AsyncTask<Void,Void,String> task1 = new AsyncTask<Void, Void, String>() {

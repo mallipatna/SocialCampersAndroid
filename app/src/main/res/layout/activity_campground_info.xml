@@ -212,9 +212,10 @@
             android:layout_alignStart="@+id/tv_rvHookup" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:text="CLICK TO VIEW REVIEWS"
+            android:background="?attr/colorPrimary"
             android:id="@+id/button_view_review"
             android:layout_marginBottom="45dp"
             android:layout_alignParentBottom="true"

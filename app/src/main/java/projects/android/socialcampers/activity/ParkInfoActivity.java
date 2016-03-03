@@ -35,7 +35,7 @@ public class ParkInfoActivity extends Activity {
         final String username = intent.getExtras().getString("username");
 
         TextView parknameininfo = (TextView) findViewById(R.id.park_name_in_info);
-        parknameininfo.setText(parkname);
+        parknameininfo.setText(parkname.toUpperCase());
 
         // Get about for parkname
         AsyncTask<Void,Void,String> task1 = new AsyncTask<Void, Void, String>() {

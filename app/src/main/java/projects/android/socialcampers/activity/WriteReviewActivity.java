@@ -25,7 +25,7 @@ public class WriteReviewActivity extends Activity {
         final String username = intent.getExtras().getString("username");
 
         TextView textView1 = (TextView) findViewById(R.id.tv_review_for);
-        textView1.setText("Write review for\n"+campgroundname+" Campground,\n "+parkname);
+        textView1.setText("WRITE REVIEW FOR\n"+campgroundname.toUpperCase()+" CAMPGROUND,\n "+parkname.toUpperCase());
 
         TextView textView2 = (TextView) findViewById(R.id.tv_username);
         textView2.setText(username);

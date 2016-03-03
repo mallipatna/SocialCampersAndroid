@@ -12,10 +12,12 @@
         android:id="@+id/tv_review_for"
         android:background="?attr/colorPrimary"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:paddingTop="10dp"
+        android:padding="10dp" />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="500dp"
         android:layout_marginTop="100dp">
 
 
@@ -23,11 +25,11 @@
             android:layout_width="220dp"
             android:layout_height="100dp"
             android:inputType="textMultiLine"
-            android:ems="10"
             android:id="@+id/tf_reviewtext"
-            android:layout_above="@+id/ratingBar"
+            android:layout_below="@+id/label_username"
             android:layout_alignLeft="@+id/button_submit_review"
-            android:layout_alignStart="@+id/button_submit_review" />
+            android:layout_alignStart="@+id/button_submit_review"
+            android:layout_marginTop="42dp" />
 
         <TextView
             android:layout_width="80dp"
@@ -35,19 +37,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Review:"
             android:id="@+id/tv_review"
-            android:layout_alignBaseline="@+id/tf_reviewtext"
-            android:layout_alignBottom="@+id/tf_reviewtext"
+            android:layout_alignTop="@+id/tf_reviewtext"
             android:layout_toLeftOf="@+id/tf_reviewtext"
-            android:layout_toStartOf="@+id/tf_reviewtext"
-            android:layout_marginRight="20dp" />
+            android:layout_toStartOf="@+id/tf_reviewtext" />
 
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ratingBar"
-            android:layout_above="@+id/button_submit_review"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="37dp" />
+            android:numStars="5"
+            android:layout_below="@+id/tf_reviewtext"
+            android:layout_alignLeft="@+id/tv_review"
+            android:layout_alignStart="@+id/tv_review"
+            android:layout_marginTop="31dp" />
 
         <Button
             android:layout_width="100dp"
@@ -56,25 +58,25 @@
             android:id="@+id/button_submit_review"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:background="?attr/colorPrimary"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/ratingBar"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="38dp" />
+            android:layout_marginTop="31dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Name:"
             android:id="@+id/label_username"
-            android:layout_above="@+id/tf_reviewtext"
-            android:layout_alignRight="@+id/tv_review"
-            android:layout_alignEnd="@+id/tv_review"
-            android:layout_marginBottom="42dp" />
+            android:layout_marginTop="81dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/tv_review"
+            android:layout_alignStart="@+id/tv_review" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Name"
             android:id="@+id/tv_username"
             android:layout_alignTop="@+id/label_username"

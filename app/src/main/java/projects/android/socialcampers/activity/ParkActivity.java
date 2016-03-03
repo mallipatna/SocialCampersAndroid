@@ -38,9 +38,6 @@ public class ParkActivity extends Activity {
         final String username = intent.getExtras().getString("username");
 
 
-        TextView tv = (TextView) findViewById(R.id.id_token);
-        tv.setText("Logged user: " + username);
-
         /* make the API call */
         new GraphRequest(
                 AccessToken.getCurrentAccessToken(),

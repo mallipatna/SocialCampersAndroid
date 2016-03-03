@@ -8,7 +8,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="10dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -50,17 +51,20 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/park_name_in_review"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:scrollingCache="true"
+            android:scrollIndicators="right">
         </ListView>
 
         <Button
             android:layout_width="120dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:id="@+id/button_write_review"
             android:text="@string/button_write_review"
             android:background="?attr/colorPrimary"
             android:layout_below="@+id/lv_review_list"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:padding="10dp" />
     </RelativeLayout>
 
 
