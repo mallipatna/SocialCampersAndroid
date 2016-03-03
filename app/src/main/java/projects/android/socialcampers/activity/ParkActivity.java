@@ -35,17 +35,11 @@ public class ParkActivity extends Activity {
         final String userId = intent.getExtras().getString("userID");
         final AccessToken accessToken = AccessToken.getCurrentAccessToken();
         final String authToken = intent.getExtras().getString("authToken");
-
+        final String username = intent.getExtras().getString("username");
 
 
         TextView tv = (TextView) findViewById(R.id.id_token);
-        //tv.setText(userId+"\n"+authToken);
-
-        Profile profile = Profile.getCurrentProfile();
-
-        if(profile!=null){
-            tv.setText("Logged user: " + profile.getFirstName() + " " + profile.getLastName());
-        }
+        tv.setText("Logged user: " + username);
 
         /* make the API call */
         new GraphRequest(
@@ -107,6 +101,7 @@ public class ParkActivity extends Activity {
                 // Click on an element in view and it should go to another activity
                 Intent intent1 = new Intent(view.getContext(), ParkInfoActivity.class);
                 intent1.putExtra("parkname",tag);
+                intent1.putExtra("username",username);
                 startActivity(intent1);
             }
         });

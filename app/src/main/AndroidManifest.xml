@@ -55,6 +55,10 @@
         <activity
             android:name=".ReviewActivity"
             android:label="@string/title_activity_review_display"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WriteReviewActivity"
+            android:label="@string/title_activity_write_review"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

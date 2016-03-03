@@ -21,4 +21,6 @@
     <string name="title_activity_campground_list">campground_list</string>
     <string name="title_activity_review_display">ReviewDisplayActivity</string>
     <string name="reviews_for">REVIEWS FOR</string>
+    <string name="button_write_review">WRITE REVIEW</string>
+    <string name="title_activity_write_review">WriteReviewActivity</string>
 </resources>

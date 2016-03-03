@@ -20,6 +20,7 @@ public class CampgroundInfoActivity extends Activity {
         Intent intent = getIntent();
         final String campgroundName = intent.getExtras().getString("campgroundname");
         final String parkName = intent.getExtras().getString("parkname");
+        final String username = intent.getExtras().getString("username");
 
         TextView tv_parkName = (TextView) findViewById(R.id.park_name);
         tv_parkName.setText(parkName);
@@ -229,6 +230,7 @@ public class CampgroundInfoActivity extends Activity {
                 Intent intent1 = new Intent(getApplicationContext(), ReviewActivity.class);
                 intent1.putExtra("parkName", parkName);
                 intent1.putExtra("campgroundName",campgroundName);
+                intent1.putExtra("username",username);
                 Toast.makeText(getApplicationContext(), parkName +" "+campgroundName,Toast.LENGTH_LONG).show();
                 startActivity(intent1);
             }

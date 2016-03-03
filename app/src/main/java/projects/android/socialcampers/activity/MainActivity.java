@@ -54,15 +54,14 @@ public class MainActivity extends Activity{
                 public void onClick(View v) {
                     String userID = AccessToken.getCurrentAccessToken().getUserId();
                     String authToken = AccessToken.getCurrentAccessToken().getToken();
+                    Profile profile = Profile.getCurrentProfile();
+                    String username = profile.getFirstName()+" "+profile.getLastName();
                     Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
                     intent.putExtra("userID", userID);
                     intent.putExtra("authToken", authToken);
+                    intent.putExtra("username", username);
                     startActivity(intent);
 
-                    Profile profile = Profile.getCurrentProfile();
-                    String name = profile.getFirstName()+" "+profile.getLastName();
-                    Intent intent1 = new Intent(getApplicationContext(), ReviewActivity.class);
-                    intent1.putExtra("username", name);
                 }
             });
 
@@ -79,20 +78,16 @@ public class MainActivity extends Activity{
                 String userID = loginResult.getAccessToken().getUserId();
                 String authToken = loginResult.getAccessToken().getToken();
 
-                //Profile profile1 = Profile.getCurrentProfile();
-                //login_result.setText("Welcome "+ profile1.getFirstName()+ "!");
+                Profile profile = Profile.getCurrentProfile();
+                String username = profile.getFirstName()+" "+profile.getLastName();
 
                 btnClick.setClickable(true);
 
                 Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
                 intent.putExtra("userID",userID);
                 intent.putExtra("authToken",authToken);
+                intent.putExtra("username",username);
                 startActivity(intent);
-
-                Profile profile = Profile.getCurrentProfile();
-                String name = profile.getFirstName()+" "+profile.getLastName();
-                Intent intent1 = new Intent(getApplicationContext(), ReviewActivity.class);
-                intent1.putExtra("username", name);
 
             }
 

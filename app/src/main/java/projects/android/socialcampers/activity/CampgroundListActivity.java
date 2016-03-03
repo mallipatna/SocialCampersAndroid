@@ -27,6 +27,7 @@ public class CampgroundListActivity extends Activity {
         // Get parkname from prev (ParkInfo) Activity
         Intent intent = getIntent();
         final String parkname = intent.getExtras().getString("parkname");
+        final String username = intent.getExtras().getString("username");
 
         TextView textView = (TextView) findViewById(R.id.campground_list_name);
         textView.setText("List of campgrounds in\n" + parkname);
@@ -74,6 +75,7 @@ public class CampgroundListActivity extends Activity {
                 Intent intent1 = new Intent(view.getContext(), CampgroundInfoActivity.class);
                 intent1.putExtra("parkname", parkname);
                 intent1.putExtra("campgroundname", tag);
+                intent1.putExtra("username",username);
                 Toast.makeText(getApplicationContext(), parkname + " : " + tag, Toast.LENGTH_SHORT).show();
                 startActivity(intent1);
             }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".WriteReviewActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_review_for"
+        android:background="?attr/colorPrimary"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAlignment="center" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="100dp">
+
+
+        <EditText
+            android:layout_width="220dp"
+            android:layout_height="100dp"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/tf_reviewtext"
+            android:layout_above="@+id/ratingBar"
+            android:layout_alignLeft="@+id/button_submit_review"
+            android:layout_alignStart="@+id/button_submit_review" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Review:"
+            android:id="@+id/tv_review"
+            android:layout_alignBaseline="@+id/tf_reviewtext"
+            android:layout_alignBottom="@+id/tf_reviewtext"
+            android:layout_toLeftOf="@+id/tf_reviewtext"
+            android:layout_toStartOf="@+id/tf_reviewtext"
+            android:layout_marginRight="20dp" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar"
+            android:layout_above="@+id/button_submit_review"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="37dp" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT"
+            android:id="@+id/button_submit_review"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="?attr/colorPrimary"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="38dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Name:"
+            android:id="@+id/label_username"
+            android:layout_above="@+id/tf_reviewtext"
+            android:layout_alignRight="@+id/tv_review"
+            android:layout_alignEnd="@+id/tv_review"
+            android:layout_marginBottom="42dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Name"
+            android:id="@+id/tv_username"
+            android:layout_alignTop="@+id/label_username"
+            android:layout_alignLeft="@+id/tf_reviewtext"
+            android:layout_alignStart="@+id/tf_reviewtext" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,9 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import projects.android.socialcampers.DBOperations.GetCampground;
 import projects.android.socialcampers.DBOperations.GetReview;
-import projects.android.socialcampers.model.Campground;
 import projects.android.socialcampers.model.Review;
 
 public class ReviewActivity extends Activity {
@@ -29,6 +27,7 @@ public class ReviewActivity extends Activity {
         Intent intent = getIntent();
         final String parkName = intent.getExtras().getString("parkName");
         final String campgroundName = intent.getExtras().getString("campgroundName");
+        final String username = intent.getExtras().getString("username");
 
         TextView textView_parkName = (TextView) findViewById(R.id.park_name_in_review);
         textView_parkName.setText(parkName);
@@ -84,21 +83,18 @@ public class ReviewActivity extends Activity {
         final ListView listView = (ListView) findViewById(R.id.lv_review_list);
         listView.setAdapter(adapter);
 
-        // Get position of item clicked
-       /* listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            // Click on an element in view and it should go to another activity
+        Button button = (Button) findViewById(R.id.button_write_review);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // Click on an element in view and it should go to another activity
-                String tag = listView.getAdapter().getItem(position).toString();
-                Toast.makeText(getApplicationContext(),tag , Toast.LENGTH_LONG).show();
-
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getApplicationContext(), WriteReviewActivity.class);
+                intent1.putExtra("parkname",parkName);
+                intent1.putExtra("campgroundname",campgroundName);
+                intent1.putExtra("username",username);
+                Toast.makeText(getApplicationContext(), parkName +" "+campgroundName + " " + username,Toast.LENGTH_LONG).show();
+                startActivity(intent1);
             }
-
         });
-       */
 
     }
 
