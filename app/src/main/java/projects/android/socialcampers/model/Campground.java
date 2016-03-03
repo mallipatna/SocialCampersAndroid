@@ -12,12 +12,6 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
 @DynamoDBTable(tableName = "Campground")
 public class Campground {
 
-    /*
-    campgroundId, campgroundName,datesOpen,numberCampsites, bathroomType,  dumpStation, fee,
-    reserveSite, rvHookup, shower
-    */
-
-    //private Integer campgroundId;
     private String campgroundName;
     private String parkName;
     private String datesOpen;

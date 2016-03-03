@@ -30,17 +30,17 @@
         </activity>
         <activity
             android:name=".ParkActivity"
-            android:label="@string/title_activity_park"></activity>
+            android:label="@string/title_activity_park" />
         <activity
             android:name=".ParkInfoActivity"
             android:label="@string/title_activity_park_info"
             android:parentActivityName=".ParkActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CampgroundInfoActivity"
             android:label="@string/campground_info"
             android:parentActivityName=".CampgroundInfoActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Add another activity to use Facebook login -->
         <activity
@@ -51,6 +51,10 @@
         <activity
             android:name=".CampgroundListActivity"
             android:label="@string/title_activity_campground_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ReviewActivity"
+            android:label="@string/title_activity_review_display"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

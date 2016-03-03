@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import projects.android.socialcampers.DBOperations.GetCampground;
 
-/**
- * Created by nandinivishwas on 28/02/16.
- */
 public class CampgroundInfoActivity extends Activity {
 
     @Override
@@ -219,6 +219,21 @@ public class CampgroundInfoActivity extends Activity {
         // Set dumpStation to textview tv_dump_station
         TextView tvdumpStation = (TextView) findViewById(R.id.tv_dump_station);
         tvdumpStation.setText(dumpStation);
+
+        // On Button click go to Review Activity
+        Button button = (Button) findViewById(R.id.button_view_review);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get parkName and campgroundName and pass on to next (Review) activity
+                Intent intent1 = new Intent(getApplicationContext(), ReviewActivity.class);
+                intent1.putExtra("parkName", parkName);
+                intent1.putExtra("campgroundName",campgroundName);
+                Toast.makeText(getApplicationContext(), parkName +" "+campgroundName,Toast.LENGTH_LONG).show();
+                startActivity(intent1);
+            }
+        });
+
 
 
 

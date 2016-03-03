@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ReviewActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/reviews_for"
+            android:text="@string/reviews_for"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:paddingTop="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/park_name_in_review"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:layout_below="@+id/campground_name_in_review"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingTop="5dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/campground_name_in_review"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="?attr/colorPrimary"
+            android:textAlignment="center"
+            android:layout_below="@+id/reviews_for"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingTop="5dp" />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lv_review_list"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/park_name_in_review">
+        </ListView>
+
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -12,6 +12,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -57,6 +58,11 @@ public class MainActivity extends Activity{
                     intent.putExtra("userID", userID);
                     intent.putExtra("authToken", authToken);
                     startActivity(intent);
+
+                    Profile profile = Profile.getCurrentProfile();
+                    String name = profile.getFirstName()+" "+profile.getLastName();
+                    Intent intent1 = new Intent(getApplicationContext(), ReviewActivity.class);
+                    intent1.putExtra("username", name);
                 }
             });
 
@@ -82,6 +88,11 @@ public class MainActivity extends Activity{
                 intent.putExtra("userID",userID);
                 intent.putExtra("authToken",authToken);
                 startActivity(intent);
+
+                Profile profile = Profile.getCurrentProfile();
+                String name = profile.getFirstName()+" "+profile.getLastName();
+                Intent intent1 = new Intent(getApplicationContext(), ReviewActivity.class);
+                intent1.putExtra("username", name);
 
             }
 
