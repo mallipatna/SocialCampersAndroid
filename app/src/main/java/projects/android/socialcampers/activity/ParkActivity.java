@@ -33,12 +33,10 @@ public class ParkActivity extends Activity {
 
         final Intent intent = getIntent();
         final String userId = intent.getExtras().getString("userID");
-        final AccessToken accessToken = AccessToken.getCurrentAccessToken();
         final String authToken = intent.getExtras().getString("authToken");
         final String username = intent.getExtras().getString("username");
 
-
-        /* make the API call */
+        /* make the API call
         new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
                 "/{userId}/friendlists",
@@ -46,11 +44,12 @@ public class ParkActivity extends Activity {
                 HttpMethod.GET,
                 new GraphRequest.Callback() {
                     public void onCompleted(GraphResponse response) {
-                        /* handle the result */
+
                         
                     }
                 }
         ).executeAsync();
+        */
 
         // TODO: Populate list with user's friends from Facebook
 

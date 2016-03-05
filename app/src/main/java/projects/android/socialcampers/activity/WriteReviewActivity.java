@@ -30,7 +30,9 @@ public class WriteReviewActivity extends Activity {
         TextView textView2 = (TextView) findViewById(R.id.tv_username);
         textView2.setText(username);
 
-
+        // TODO: Capture review text, rating from click of submit button
+        // TODO: Add parkname:campgroundname, reviewID, reviewtext, rating,
+        // TODO: username attributes to DynamoDB through PostReview class
 
       }
 

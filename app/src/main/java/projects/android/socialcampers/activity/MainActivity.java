@@ -2,10 +2,13 @@ package projects.android.socialcampers.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInstaller;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -39,27 +42,29 @@ public class MainActivity extends Activity{
         login_result = (TextView) findViewById(R.id.login_result);
         fb_login = (LoginButton) findViewById(R.id.fb_login);
 
-        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        final AccessToken accessToken = AccessToken.getCurrentAccessToken();
 
         final Button btnClick = (Button) findViewById(R.id.button_click_continue);
 
-        if(accessToken==null){
-            btnClick.setVisibility(View.INVISIBLE);
-        }
-
-        else {
+        if(accessToken!=null) {
             btnClick.setVisibility(View.VISIBLE);
             btnClick.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     String userID = AccessToken.getCurrentAccessToken().getUserId();
                     String authToken = AccessToken.getCurrentAccessToken().getToken();
-                    Profile profile = Profile.getCurrentProfile();
-                    String username = profile.getFirstName()+" "+profile.getLastName();
                     Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
+                    Profile profile = Profile.getCurrentProfile();
+                    if (profile != null) {
+                        String username = profile.getFirstName() + " " + profile.getLastName();
+                        intent.putExtra("username", username);
+                        Toast.makeText(getApplicationContext(),userID+" "+authToken+" "+username, Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), userID + " " + authToken, Toast.LENGTH_LONG).show();
+                    }
                     intent.putExtra("userID", userID);
                     intent.putExtra("authToken", authToken);
-                    intent.putExtra("username", username);
+
                     startActivity(intent);
 
                 }
@@ -68,37 +73,46 @@ public class MainActivity extends Activity{
         }
 
         fb_login.setReadPermissions("me");
-        fb_login.setReadPermissions("user_friends");
+            fb_login.setReadPermissions("user_friends");
 
-        fb_login.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            fb_login.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
 
-            @Override
-            public void onSuccess(LoginResult loginResult) {
+                @Override
+                public void onSuccess(LoginResult loginResult) {
 
-                String userID = loginResult.getAccessToken().getUserId();
-                String authToken = loginResult.getAccessToken().getToken();
+                    String userID = loginResult.getAccessToken().getUserId();
+                    String authToken = loginResult.getAccessToken().getToken();
 
-                Profile profile = Profile.getCurrentProfile();
-                String username = profile.getFirstName()+" "+profile.getLastName();
+                    Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
 
-                btnClick.setClickable(true);
+                    Profile profile = Profile.getCurrentProfile();
+                    if(profile!=null) {
+                        String username = profile.getFirstName() + " " + profile.getLastName();
+                        intent.putExtra("username",username);
+                        Toast.makeText(getApplicationContext(),userID+" "+authToken+" "+username, Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(),userID+" "+authToken, Toast.LENGTH_LONG).show();
+                    }
+                    btnClick.setClickable(true);
 
-                Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
-                intent.putExtra("userID",userID);
-                intent.putExtra("authToken",authToken);
-                intent.putExtra("username",username);
-                startActivity(intent);
 
-            }
+                    intent.putExtra("userID", userID);
+                    intent.putExtra("authToken", authToken);
 
-            @Override
-            public void onCancel() {
-                login_result.setText("Login cancelled\nCan't proceed");
-            }
 
-            @Override
-            public void onError(FacebookException error) {
-                login_result.setText(error.toString());
+
+                    startActivity(intent);
+
+                }
+
+                @Override
+                public void onCancel() {
+                    login_result.setText("Login cancelled\nCan't proceed");
+                }
+
+                @Override
+                public void onError(FacebookException error) {
+                    login_result.setText(error.toString());
             }
 
         });
