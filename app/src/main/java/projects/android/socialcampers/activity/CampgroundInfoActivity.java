@@ -22,11 +22,8 @@ public class CampgroundInfoActivity extends Activity {
         final String parkName = intent.getExtras().getString("parkname");
         final String username = intent.getExtras().getString("username");
 
-        TextView tv_parkName = (TextView) findViewById(R.id.park_name);
-        tv_parkName.setText(parkName.toUpperCase());
-
         TextView tv_campground_name = (TextView) findViewById(R.id.campground_name_info);
-        tv_campground_name.setText(campgroundName.toUpperCase() + " CAMPGROUND DETAILS");
+        tv_campground_name.setText(campgroundName.toUpperCase() + " CAMPGROUND DETAILS\n" + parkName.toUpperCase());
 
         // Get datesOpen from GetCampground
         AsyncTask<Void,Void,String> task1 = new AsyncTask<Void, Void, String>() {
@@ -231,13 +228,11 @@ public class CampgroundInfoActivity extends Activity {
                 intent1.putExtra("parkName", parkName);
                 intent1.putExtra("campgroundName",campgroundName);
                 intent1.putExtra("username",username);
-                Toast.makeText(getApplicationContext(), parkName +" "+campgroundName,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Reviews for "+ campgroundName +
+                        " Campground\n"+ parkName ,Toast.LENGTH_LONG).show();
                 startActivity(intent1);
             }
         });
-
-
-
 
     }
 

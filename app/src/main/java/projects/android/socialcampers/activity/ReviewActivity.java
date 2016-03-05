@@ -29,11 +29,8 @@ public class ReviewActivity extends Activity {
         final String campgroundName = intent.getExtras().getString("campgroundName");
         final String username = intent.getExtras().getString("username");
 
-        TextView textView_parkName = (TextView) findViewById(R.id.park_name_in_review);
-        textView_parkName.setText(parkName.toUpperCase());
-
-        TextView textView_campgroundName = (TextView) findViewById(R.id.campground_name_in_review);
-        textView_campgroundName.setText(campgroundName.toUpperCase() + " CAMPGROUND");
+        TextView textView_parkName = (TextView) findViewById(R.id.reviews_for);
+        textView_parkName.setText("LIST OF REVIEWS FOR\n"+campgroundName.toUpperCase()+" CAMPGROUND\n"+parkName.toUpperCase());
 
         final String parkCampgroundName = parkName + ":" + campgroundName;
 
@@ -91,7 +88,8 @@ public class ReviewActivity extends Activity {
                 intent1.putExtra("parkname",parkName);
                 intent1.putExtra("campgroundname",campgroundName);
                 intent1.putExtra("username",username);
-                Toast.makeText(getApplicationContext(), parkName +" "+campgroundName + " " + username,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Review for "+
+                        campgroundName + " Campground,\n" + parkName +".\nBy: "+ username,Toast.LENGTH_LONG).show();
                 startActivity(intent1);
             }
         });

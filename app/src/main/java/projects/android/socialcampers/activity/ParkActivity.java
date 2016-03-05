@@ -34,8 +34,9 @@ public class ParkActivity extends Activity {
         final Intent intent = getIntent();
         final String userId = intent.getExtras().getString("userID");
         final String authToken = intent.getExtras().getString("authToken");
-        final String username = intent.getExtras().getString("username");
-
+        Profile profile = Profile.getCurrentProfile();
+        //final String username = intent.getExtras().getString("username");
+        final String username = profile.getFirstName() + " " + profile.getLastName();
         /* make the API call
         new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
@@ -93,11 +94,11 @@ public class ParkActivity extends Activity {
                                     int position, long id) {
 
                 String tag = listView.getAdapter().getItem(position).toString();
-                Toast.makeText(getApplicationContext(), tag , Toast.LENGTH_SHORT).show();
                 // Click on an element in view and it should go to another activity
                 Intent intent1 = new Intent(view.getContext(), ParkInfoActivity.class);
                 intent1.putExtra("parkname",tag);
                 intent1.putExtra("username",username);
+                Toast.makeText(getApplicationContext(), tag + "\nUser: " + username , Toast.LENGTH_LONG).show();
                 startActivity(intent1);
             }
         });

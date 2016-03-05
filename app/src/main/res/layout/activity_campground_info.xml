@@ -6,35 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".CampgroundInfoActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
+        android:layout_height="match_parent">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:id="@+id/campground_name_info"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:background="?attr/colorPrimary"
-            android:textAlignment="center" />
-
-    </android.support.v7.widget.Toolbar>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="55dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/park_name"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:background="?attr/colorPrimary"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,12 +26,12 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Dates of Operation"
             android:id="@+id/label_dates_open"
-            android:layout_below="@+id/park_name"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/campground_name_info" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -212,14 +196,52 @@
             android:layout_alignStart="@+id/tv_rvHookup" />
 
         <Button
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CLICK TO VIEW REVIEWS"
             android:background="?attr/colorPrimary"
             android:id="@+id/button_view_review"
-            android:layout_marginBottom="45dp"
+            android:layout_marginBottom="21dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RECOMMEND TO FRIENDS"
+            android:id="@+id/button_recommend"
+            android:background="?attr/colorPrimary"
+            android:layout_alignTop="@+id/button_view_review"
+            android:layout_toRightOf="@+id/button_view_review"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Average rating"
+            android:id="@+id/label_avg_rating"
+            android:layout_marginTop="22dp"
+            android:layout_below="@+id/label_dump_station"
+            android:layout_alignLeft="@+id/label_dump_station"
+            android:layout_alignStart="@+id/label_dump_station" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rb_avg_rating"
+            android:layout_above="@+id/button_view_review"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:numStars="5"
+            android:stepSize="5" />
 
 
     </RelativeLayout>

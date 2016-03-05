@@ -58,9 +58,9 @@ public class MainActivity extends Activity{
                     if (profile != null) {
                         String username = profile.getFirstName() + " " + profile.getLastName();
                         intent.putExtra("username", username);
-                        Toast.makeText(getApplicationContext(),userID+" "+authToken+" "+username, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),username, Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), userID + " " + authToken, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), " ", Toast.LENGTH_LONG).show();
                     }
                     intent.putExtra("userID", userID);
                     intent.putExtra("authToken", authToken);
@@ -89,17 +89,16 @@ public class MainActivity extends Activity{
                     if(profile!=null) {
                         String username = profile.getFirstName() + " " + profile.getLastName();
                         intent.putExtra("username",username);
-                        Toast.makeText(getApplicationContext(),userID+" "+authToken+" "+username, Toast.LENGTH_LONG).show();
-                    }else{
-                        Toast.makeText(getApplicationContext(),userID+" "+authToken, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), username, Toast.LENGTH_LONG).show();
                     }
-                    btnClick.setClickable(true);
+                    else {
+                        Toast.makeText(getApplicationContext(), " ", Toast.LENGTH_LONG).show();
+                    }
 
+                    btnClick.setClickable(true);
 
                     intent.putExtra("userID", userID);
                     intent.putExtra("authToken", authToken);
-
-
 
                     startActivity(intent);
 
