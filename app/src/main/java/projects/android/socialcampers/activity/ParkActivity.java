@@ -35,8 +35,8 @@ public class ParkActivity extends Activity {
         final String userId = intent.getExtras().getString("userID");
         final String authToken = intent.getExtras().getString("authToken");
         Profile profile = Profile.getCurrentProfile();
-        //final String username = intent.getExtras().getString("username");
-        final String username = profile.getFirstName() + " " + profile.getLastName();
+        // final String username = intent.getExtras().getString("username");
+       final String username = profile.getFirstName() + " " + profile.getLastName();
         /* make the API call
         new GraphRequest(
                 AccessToken.getCurrentAccessToken(),

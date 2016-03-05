@@ -76,7 +76,8 @@ public class CampgroundListActivity extends Activity {
                 intent1.putExtra("parkname", parkname);
                 intent1.putExtra("campgroundname", tag);
                 intent1.putExtra("username",username);
-                Toast.makeText(getApplicationContext(), parkname + " : " + tag, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Information for "+
+                        tag+ " Campground,\n"+parkname, Toast.LENGTH_LONG).show();
                 startActivity(intent1);
             }
 

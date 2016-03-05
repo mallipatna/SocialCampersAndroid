@@ -46,32 +46,6 @@ public class MainActivity extends Activity{
 
         final Button btnClick = (Button) findViewById(R.id.button_click_continue);
 
-        if(accessToken!=null) {
-            btnClick.setVisibility(View.VISIBLE);
-            btnClick.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String userID = AccessToken.getCurrentAccessToken().getUserId();
-                    String authToken = AccessToken.getCurrentAccessToken().getToken();
-                    Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
-                    Profile profile = Profile.getCurrentProfile();
-                    if (profile != null) {
-                        String username = profile.getFirstName() + " " + profile.getLastName();
-                        intent.putExtra("username", username);
-                        Toast.makeText(getApplicationContext(),username, Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), " ", Toast.LENGTH_LONG).show();
-                    }
-                    intent.putExtra("userID", userID);
-                    intent.putExtra("authToken", authToken);
-
-                    startActivity(intent);
-
-                }
-            });
-
-        }
-
         fb_login.setReadPermissions("me");
             fb_login.setReadPermissions("user_friends");
 
@@ -80,27 +54,31 @@ public class MainActivity extends Activity{
                 @Override
                 public void onSuccess(LoginResult loginResult) {
 
+                    /*
+                    String username = null;
                     String userID = loginResult.getAccessToken().getUserId();
                     String authToken = loginResult.getAccessToken().getToken();
 
-                    Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
+                    btnClick.setClickable(true);
 
                     Profile profile = Profile.getCurrentProfile();
+
                     if(profile!=null) {
-                        String username = profile.getFirstName() + " " + profile.getLastName();
-                        intent.putExtra("username",username);
+                        username = profile.getFirstName() + " " + profile.getLastName();
                         Toast.makeText(getApplicationContext(), username, Toast.LENGTH_LONG).show();
                     }
                     else {
                         Toast.makeText(getApplicationContext(), " ", Toast.LENGTH_LONG).show();
                     }
 
-                    btnClick.setClickable(true);
-
+                    Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
                     intent.putExtra("userID", userID);
                     intent.putExtra("authToken", authToken);
+                    intent.putExtra("username",username);
 
                     startActivity(intent);
+                    */
+                    login_result.setText("Login success");
 
                 }
 
@@ -115,6 +93,34 @@ public class MainActivity extends Activity{
             }
 
         });
+
+        if(accessToken!=null) {
+
+            btnClick.setVisibility(View.VISIBLE);
+            btnClick.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String userID = AccessToken.getCurrentAccessToken().getUserId();
+                    String authToken = AccessToken.getCurrentAccessToken().getToken();
+                    Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
+                    Profile profile = Profile.getCurrentProfile();
+                    if (profile != null) {
+                        String username = profile.getFirstName() + " " + profile.getLastName();
+                        intent.putExtra("username", username);
+                        login_result.setText("Logged in user: "+username);
+                        Toast.makeText(getApplicationContext(),username, Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), " ", Toast.LENGTH_LONG).show();
+                    }
+                    intent.putExtra("userID", userID);
+                    intent.putExtra("authToken", authToken);
+
+                    startActivity(intent);
+
+                }
+            });
+
+        }
 
     }
 
