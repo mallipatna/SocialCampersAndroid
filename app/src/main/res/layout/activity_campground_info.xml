@@ -196,33 +196,29 @@
             android:layout_alignStart="@+id/tv_rvHookup" />
 
         <Button
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
             android:text="CLICK TO VIEW REVIEWS"
             android:background="?attr/colorPrimary"
             android:id="@+id/button_view_review"
-            android:layout_marginBottom="40dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/label_avg_rating"
-            android:layout_alignStart="@+id/label_avg_rating" />
+            android:layout_marginBottom="24dp"
+            android:layout_above="@+id/button_back_camp_list"
+            android:layout_centerHorizontal="true" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
             android:text="BACK TO CAMPGROUNDS LIST"
             android:id="@+id/button_back_camp_list"
             android:background="?attr/colorPrimary"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:clickable="true"
-            android:layout_alignTop="@+id/button_view_review"
-            android:layout_alignLeft="@+id/tv_avg_rating"
-            android:layout_alignStart="@+id/tv_avg_rating"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp" />
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="22dp" />
 
         <TextView
             android:layout_width="wrap_content"
