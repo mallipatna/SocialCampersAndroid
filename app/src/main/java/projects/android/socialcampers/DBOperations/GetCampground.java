@@ -2,6 +2,7 @@ package projects.android.socialcampers.DBOperations;
 
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBQueryExpression;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +60,7 @@ public class GetCampground extends BaseDdbOperation {
                 return campground.getFee();
             }
         }
-        return 0;
+        return 0.0;
     }
 
     // Get Reservation? for (parkName + campgroundName) combination from Campground table.
@@ -147,6 +148,8 @@ public class GetCampground extends BaseDdbOperation {
                 sum+=x;
             }
             avg = sum/(double)size;
+            avg = new BigDecimal(String.valueOf(avg)).setScale(2,BigDecimal.ROUND_CEILING).doubleValue();
+
         }
         return avg;
     }

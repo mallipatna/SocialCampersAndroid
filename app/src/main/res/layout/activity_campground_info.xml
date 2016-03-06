@@ -211,16 +211,17 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RECOMMEND TO FRIENDS"
-            android:id="@+id/button_recommend"
+            android:text="BACK"
+            android:id="@+id/button_back_camp_list"
             android:background="?attr/colorPrimary"
             android:layout_alignTop="@+id/button_view_review"
             android:layout_toRightOf="@+id/button_view_review"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="20dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:paddingLeft="5dp"
-            android:paddingRight="5dp" />
+            android:paddingRight="5dp"
+            android:clickable="true" />
 
         <TextView
             android:layout_width="wrap_content"

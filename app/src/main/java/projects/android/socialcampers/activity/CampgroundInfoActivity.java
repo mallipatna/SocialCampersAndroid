@@ -84,7 +84,7 @@ public class CampgroundInfoActivity extends Activity {
         try {
             fee = task3.execute().get().toString();
         }catch (Exception e){
-            fee = e.getMessage();
+            fee = e.toString();
         }
 
         // Set fee to textview tv_fee
@@ -254,6 +254,18 @@ public class CampgroundInfoActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "Reviews for "+ campgroundName +
                         " Campground\n"+ parkName ,Toast.LENGTH_LONG).show();
                 startActivity(intent1);
+            }
+        });
+
+        // Go back to campground list activity
+        Button button1 = (Button) findViewById(R.id.button_back_camp_list);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getApplicationContext(), CampgroundListActivity.class);
+                intent2.putExtra("parkname",parkName);
+                intent2.putExtra("username",username);
+                startActivity(intent2);
             }
         });
 
