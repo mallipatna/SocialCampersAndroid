@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".CampgroundListActivity">
+    tools:context=".CampgroundListActivity"
+    android:nestedScrollingEnabled="true"
+    android:scrollIndicators="bottom|right">
 
     <TextView
         android:layout_width="match_parent"
@@ -20,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="95dp"
-        android:scrollIndicators="right">
+        android:scrollIndicators="bottom|right"
+        android:nestedScrollingEnabled="true">
 
         <ListView
             android:layout_width="fill_parent"
@@ -29,7 +32,8 @@
             style="@style/Base.TextAppearance.AppCompat.Button"
             android:layout_alignParentLeft="false"
             android:layout_alignParentStart="false"
-            android:layout_alignParentTop="false" />
+            android:layout_alignParentTop="false"
+            android:scrollIndicators="bottom|right" />
 
         <Button
             android:layout_width="wrap_content"

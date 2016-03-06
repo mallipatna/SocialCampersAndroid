@@ -8,7 +8,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollIndicators="bottom|right"
+        android:nestedScrollingEnabled="true">
 
         <TextView
             android:layout_width="match_parent"
@@ -196,8 +198,8 @@
             android:layout_alignStart="@+id/tv_rvHookup" />
 
         <Button
-            android:layout_width="200dp"
-            android:layout_height="30dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
             android:text="CLICK TO VIEW REVIEWS"
             android:background="?attr/colorPrimary"
             android:id="@+id/button_view_review"
@@ -208,8 +210,8 @@
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:layout_width="250dp"
-            android:layout_height="30dp"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
             android:text="BACK TO CAMPGROUNDS LIST"
             android:id="@+id/button_back_camp_list"
             android:background="?attr/colorPrimary"
@@ -218,7 +220,7 @@
             android:clickable="true"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="22dp" />
+            android:layout_marginBottom="20dp" />
 
         <TextView
             android:layout_width="wrap_content"

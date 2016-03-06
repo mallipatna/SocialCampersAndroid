@@ -18,7 +18,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="100dp"
+        android:scrollIndicators="bottom|right"
+        android:nestedScrollingEnabled="true">
 
 
         <EditText

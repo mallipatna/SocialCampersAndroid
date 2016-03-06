@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollIndicators="right"
+        android:scrollIndicators="bottom|right"
         android:nestedScrollingEnabled="true">
 
         <TextView
@@ -29,7 +29,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:scrollingCache="true"
-            android:scrollIndicators="right"
+            android:scrollIndicators="bottom|right"
             android:layout_below="@+id/reviews_for"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
