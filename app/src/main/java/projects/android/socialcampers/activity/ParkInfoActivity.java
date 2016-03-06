@@ -160,7 +160,7 @@ public class ParkInfoActivity extends Activity {
         //ScrollView placesToGoScrollview = (ScrollView) findViewById(R.id.ScrollView5);
         TextView placesToGoview = (TextView) findViewById(R.id.textView5);
         placesToGoview.setMovementMethod(new ScrollingMovementMethod());
-        placesToGoview.append(placesToGo+"\n");
+        placesToGoview.append(placesToGo + "\n");
 
 
         Button button = (Button) findViewById(R.id.button_view_campgrounds_list);
@@ -176,6 +176,20 @@ public class ParkInfoActivity extends Activity {
 
             }
         });
+
+        Button button1 = (Button) findViewById(R.id.button_back_park_list);
+        button1.setClickable(true);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getApplicationContext(),ParkActivity.class);
+                intent2.putExtra("parkname",parkname);
+                intent2.putExtra("username",username);
+                startActivity(intent2);
+            }
+        });
+
+
 
 
     }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -100,6 +101,19 @@ public class ParkActivity extends Activity {
                 intent1.putExtra("username",username);
                 Toast.makeText(getApplicationContext(), tag + "\nUser: " + username , Toast.LENGTH_LONG).show();
                 startActivity(intent1);
+            }
+        });
+
+        Button button = (Button) findViewById(R.id.button_back_main);
+        button.setClickable(true);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getApplicationContext(),MainActivity.class);
+                intent2.putExtra("userId",userId);
+                intent2.putExtra("authToken",authToken);
+                intent2.putExtra("username",username);
+                startActivity(intent2);
             }
         });
     }

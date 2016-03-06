@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,12 +76,24 @@ public class CampgroundListActivity extends Activity {
                 Intent intent1 = new Intent(view.getContext(), CampgroundInfoActivity.class);
                 intent1.putExtra("parkname", parkname);
                 intent1.putExtra("campgroundname", tag);
-                intent1.putExtra("username",username);
-                Toast.makeText(getApplicationContext(), "Information for "+
-                        tag+ " Campground,\n"+parkname, Toast.LENGTH_LONG).show();
+                intent1.putExtra("username", username);
+                Toast.makeText(getApplicationContext(), "Information for " +
+                        tag + " Campground,\n" + parkname, Toast.LENGTH_LONG).show();
                 startActivity(intent1);
             }
 
+        });
+
+        Button button = (Button) findViewById(R.id.button_back_park_info);
+        button.setClickable(true);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getApplicationContext(), ParkInfoActivity.class);
+                intent2.putExtra("parkname", parkname);
+                intent2.putExtra("username", username);
+                startActivity(intent2);
+            }
         });
 
     }

@@ -54,31 +54,9 @@ public class MainActivity extends Activity{
                 @Override
                 public void onSuccess(LoginResult loginResult) {
 
-                    /*
-                    String username = null;
-                    String userID = loginResult.getAccessToken().getUserId();
-                    String authToken = loginResult.getAccessToken().getToken();
+                    login_result.setText("Login success");
 
                     btnClick.setClickable(true);
-
-                    Profile profile = Profile.getCurrentProfile();
-
-                    if(profile!=null) {
-                        username = profile.getFirstName() + " " + profile.getLastName();
-                        Toast.makeText(getApplicationContext(), username, Toast.LENGTH_LONG).show();
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(), " ", Toast.LENGTH_LONG).show();
-                    }
-
-                    Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
-                    intent.putExtra("userID", userID);
-                    intent.putExtra("authToken", authToken);
-                    intent.putExtra("username",username);
-
-                    startActivity(intent);
-                    */
-                    login_result.setText("Login success");
 
                 }
 

@@ -264,6 +264,7 @@ public class CampgroundInfoActivity extends Activity {
             public void onClick(View v) {
                 Intent intent2 = new Intent(getApplicationContext(), CampgroundListActivity.class);
                 intent2.putExtra("parkname",parkName);
+                intent2.putExtra("campgroundname",campgroundName);
                 intent2.putExtra("username",username);
                 startActivity(intent2);
             }
