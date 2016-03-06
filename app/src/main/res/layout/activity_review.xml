@@ -24,7 +24,7 @@
 
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="400dp"
             android:id="@+id/lv_review_list"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -32,7 +32,8 @@
             android:scrollIndicators="right"
             android:layout_below="@+id/reviews_for"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp">
+            android:paddingBottom="5dp"
+            android:layout_marginBottom="10dp">
         </ListView>
 
         <Button
@@ -41,9 +42,26 @@
             android:id="@+id/button_write_review"
             android:text="@string/button_write_review"
             android:background="?attr/colorPrimary"
-            android:layout_below="@+id/lv_review_list"
-            android:layout_centerHorizontal="true"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@+id/lv_review_list" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BACK TO CAMPGROUND"
+            android:id="@+id/button_back_camp"
+            android:layout_alignBottom="@+id/button_write_review"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:background="?attr/colorPrimary"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:clickable="true"
+            android:layout_alignTop="@+id/button_write_review" />
     </RelativeLayout>
 
 

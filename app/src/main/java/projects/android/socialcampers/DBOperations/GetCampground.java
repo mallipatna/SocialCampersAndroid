@@ -133,7 +133,7 @@ public class GetCampground extends BaseDdbOperation {
         GetReview getReview = new GetReview();
         List<Review> reviewsList;
         reviewsList = getReview.scanReviews(parkNamecampgroundName);
-        List<Integer> ratingsList = new ArrayList<>();
+        List<Double> ratingsList = new ArrayList<>();
         for (Review review:reviewsList) {
             ratingsList.add(review.getRating());
         }
@@ -143,10 +143,10 @@ public class GetCampground extends BaseDdbOperation {
         }
         else{
             int sum = 0;
-            for (Integer x:ratingsList){
+            for (Double x:ratingsList){
                 sum+=x;
             }
-            avg = (double)sum/(double)size;
+            avg = sum/(double)size;
         }
         return avg;
     }

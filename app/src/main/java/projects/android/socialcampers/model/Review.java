@@ -12,7 +12,7 @@ public class Review {
     private String timestamp;
     private String userName;
     private String reviewText;
-    private int rating;
+    private double rating;
 
     @DynamoDBHashKey(attributeName = "parkName:campgroundName")
     public String getParkNamecampgroundName() {
@@ -51,16 +51,16 @@ public class Review {
     }
 
     @DynamoDBAttribute(attributeName = "rating")
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
     @Override
     public String toString() {
-        return String.format("Review by %s\nRating: %d\n%s", userName, rating, reviewText);
+        return "Review by "+userName+"\nRating: "+rating+"\n"+reviewText;
     }
 }

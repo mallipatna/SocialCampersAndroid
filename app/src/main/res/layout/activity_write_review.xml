@@ -24,12 +24,13 @@
         <EditText
             android:layout_width="220dp"
             android:layout_height="100dp"
-            android:inputType="textMultiLine"
+            android:inputType="text"
             android:id="@+id/tf_reviewtext"
             android:layout_below="@+id/label_username"
             android:layout_alignLeft="@+id/button_submit_review"
             android:layout_alignStart="@+id/button_submit_review"
-            android:layout_marginTop="42dp" />
+            android:layout_marginTop="42dp"
+            android:editable="true" />
 
         <TextView
             android:layout_width="80dp"
@@ -45,7 +46,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/rb_rating_write"
-            android:numStars="5"
             android:layout_below="@+id/tf_reviewtext"
             android:layout_alignLeft="@+id/tv_review"
             android:layout_alignStart="@+id/tv_review"
@@ -57,6 +57,7 @@
             android:text="SUBMIT"
             android:id="@+id/button_submit_review"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:clickable="true"
             android:background="?attr/colorPrimary"
             android:layout_below="@+id/rb_rating_write"
             android:layout_centerHorizontal="true"

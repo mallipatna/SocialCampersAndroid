@@ -46,7 +46,7 @@ public class ReviewActivity extends Activity {
                 for (Review review:reviewList){
                     reviewTextList.add(review.getReviewText());
                 }
-                List<Integer> reviewRatingList = new ArrayList<>();
+                List<Double> reviewRatingList = new ArrayList<>();
                 for (Review review:reviewList){
                     reviewRatingList.add(review.getRating());
                 }
@@ -82,12 +82,24 @@ public class ReviewActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(getApplicationContext(), WriteReviewActivity.class);
-                intent1.putExtra("parkname",parkName);
-                intent1.putExtra("campgroundname",campgroundName);
-                intent1.putExtra("username",username);
+                intent1.putExtra("parkName",parkName);
+                intent1.putExtra("campgroundName",campgroundName);
+                intent1.putExtra("userName",username);
                 Toast.makeText(getApplicationContext(), "Review for "+
                         campgroundName + " Campground,\n" + parkName +".\nBy: "+ username,Toast.LENGTH_LONG).show();
                 startActivity(intent1);
+            }
+        });
+
+        Button button1 = (Button) findViewById(R.id.button_back_camp);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getApplicationContext(), CampgroundInfoActivity.class);
+                intent2.putExtra("parkname",parkName);
+                intent2.putExtra("campgroundname",campgroundName);
+                intent2.putExtra("username",username);
+                startActivity(intent2);
             }
         });
 
