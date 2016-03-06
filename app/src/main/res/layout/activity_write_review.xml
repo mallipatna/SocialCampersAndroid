@@ -44,7 +44,7 @@
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ratingBar"
+            android:id="@+id/rb_rating_write"
             android:numStars="5"
             android:layout_below="@+id/tf_reviewtext"
             android:layout_alignLeft="@+id/tv_review"
@@ -58,7 +58,7 @@
             android:id="@+id/button_submit_review"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:background="?attr/colorPrimary"
-            android:layout_below="@+id/ratingBar"
+            android:layout_below="@+id/rb_rating_write"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="31dp" />
 
@@ -82,6 +82,27 @@
             android:layout_alignTop="@+id/label_username"
             android:layout_alignLeft="@+id/tf_reviewtext"
             android:layout_alignStart="@+id/tf_reviewtext" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Time:"
+            android:id="@+id/label_time"
+            android:layout_alignTop="@+id/tv_time"
+            android:layout_alignLeft="@+id/label_username"
+            android:layout_alignStart="@+id/label_username" />
+
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tv_time"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/tv_username"
+            android:layout_alignStart="@+id/tv_username"
+            android:layout_marginTop="26dp" />
 
     </RelativeLayout>
 

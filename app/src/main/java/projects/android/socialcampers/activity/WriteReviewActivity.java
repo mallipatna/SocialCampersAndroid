@@ -8,8 +8,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
+import projects.android.socialcampers.DBOperations.PostReview;
 import projects.android.socialcampers.activity.R;
 
 public class WriteReviewActivity extends Activity {
@@ -30,10 +36,27 @@ public class WriteReviewActivity extends Activity {
         TextView textView2 = (TextView) findViewById(R.id.tv_username);
         textView2.setText(username);
 
-        // TODO: Capture review text, rating from click of submit button
-        // TODO: Add parkname:campgroundname, reviewID, reviewtext, rating,
-        // TODO: username attributes to DynamoDB through PostReview class
+        Date date = new Date();
+        TextView textView3 = (TextView) findViewById(R.id.tv_time);
+        textView3.setText(new Timestamp(date.getTime()).toString());
+        final String timestamp = textView3.getText().toString();
 
-      }
+        TextView tv_review_text = (TextView) findViewById(R.id.tf_reviewtext);
+        final String review = tv_review_text.getText().toString();
 
+        //RatingBar rb_rating = (RatingBar) findViewById(R.id.rb_rating_write);
+        //final Integer rating = rb_rating.getNumStars();
+        final Integer rating = 4;
+
+        Button button_submit = (Button) findViewById(R.id.button_submit_review);
+        button_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ( rating != 0 ) {
+                    PostReview postReview = new PostReview();
+                    postReview.postReview(parkname, campgroundname, timestamp, review, rating);
+                }
+            }
+        });
+    }
 }

@@ -41,10 +41,7 @@ public class ReviewActivity extends Activity {
                 GetReview getReview = new GetReview();
                 List<Review> reviewList = getReview.scanReviews(parkCampgroundName);
 
-                List<Integer> reviewIdList = new ArrayList<>();
-                for (Review review : reviewList){
-                    reviewIdList.add(review.getReviewId());
-                }
+
                 List<String> reviewTextList = new ArrayList<>();
                 for (Review review:reviewList){
                     reviewTextList.add(review.getReviewText());

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import projects.android.socialcampers.model.Campground;
+import projects.android.socialcampers.model.Review;
 
 public class GetCampground extends BaseDdbOperation {
 
@@ -124,4 +125,31 @@ public class GetCampground extends BaseDdbOperation {
         }
         return false;
     }
+
+
+    public double avgRating(String parkNamecampgroundName){
+        double avg = 0.0;
+
+        GetReview getReview = new GetReview();
+        List<Review> reviewsList;
+        reviewsList = getReview.scanReviews(parkNamecampgroundName);
+        List<Integer> ratingsList = new ArrayList<>();
+        for (Review review:reviewsList) {
+            ratingsList.add(review.getRating());
+        }
+        int size = ratingsList.size();
+        if(size==0){
+            return 0;
+        }
+        else{
+            int sum = 0;
+            for (Integer x:ratingsList){
+                sum+=x;
+            }
+            avg = (double)sum/(double)size;
+        }
+        return avg;
+    }
+
+
 }

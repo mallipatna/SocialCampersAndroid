@@ -9,7 +9,7 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
 public class Review {
 
     private String parkNamecampgroundName;
-    private int reviewId;
+    private String timestamp;
     private String userName;
     private String reviewText;
     private int rating;
@@ -23,13 +23,13 @@ public class Review {
         this.parkNamecampgroundName = parkNamecampgroundName;
     }
 
-    @DynamoDBRangeKey(attributeName = "reviewId")
-    public int getReviewId() {
-        return reviewId;
+    @DynamoDBRangeKey(attributeName = "timestamp")
+    public String getTimestamp() {
+        return timestamp;
     }
 
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
     @DynamoDBAttribute(attributeName = "userName")

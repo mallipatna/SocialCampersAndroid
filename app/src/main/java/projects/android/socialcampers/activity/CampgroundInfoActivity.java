@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -217,6 +218,28 @@ public class CampgroundInfoActivity extends Activity {
         // Set dumpStation to textview tv_dump_station
         TextView tvdumpStation = (TextView) findViewById(R.id.tv_dump_station);
         tvdumpStation.setText(dumpStation);
+
+        // Get AvgRating from GetCampground
+        AsyncTask<Void,Void,Double> task9 = new AsyncTask<Void, Void, Double>() {
+            @Override
+            protected Double doInBackground(Void... params) {
+                GetCampground getCampground = new GetCampground();
+                return getCampground.avgRating(parkName+":"+campgroundName);
+            }
+        };
+
+        // Start the method running in background
+        String average;
+        try {
+            average = task9.execute().get().toString();
+        }catch (Exception e){
+            average = e.toString();
+        }
+
+        // Set average to textview rb_rating_bar
+        TextView rbAvgRating = (TextView) findViewById(R.id.tv_avg_rating);
+        rbAvgRating.setText(average);
+
 
         // On Button click go to Review Activity
         Button button = (Button) findViewById(R.id.button_view_review);

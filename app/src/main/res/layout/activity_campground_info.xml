@@ -233,15 +233,15 @@
             android:layout_alignLeft="@+id/label_dump_station"
             android:layout_alignStart="@+id/label_dump_station" />
 
-        <RatingBar
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rb_avg_rating"
-            android:layout_above="@+id/button_view_review"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:numStars="5"
-            android:stepSize="5" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/tv_avg_rating"
+            android:layout_alignTop="@+id/label_avg_rating"
+            android:layout_alignLeft="@+id/tv_dump_station"
+            android:layout_alignStart="@+id/tv_dump_station" />
 
 
     </RelativeLayout>
