@@ -155,8 +155,7 @@
             android:text="@string/places_to_go"
             android:id="@+id/tv_to_go"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginBottom="76dp"
-            android:layout_above="@+id/button_view_campgrounds_list"
+            android:layout_alignTop="@+id/textView5"
             android:layout_alignLeft="@+id/tv_to_do"
             android:layout_alignStart="@+id/tv_to_do" />
 
@@ -170,7 +169,8 @@
             android:layout_below="@+id/textView4"
             android:layout_alignRight="@+id/textView1"
             android:textStyle="normal"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
 
         <!--
 
@@ -210,28 +210,32 @@
          -->
 
         <Button
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/button_view_campgrounds_list"
             android:text="@string/campgrounds_list_button"
             android:background="?attr/colorPrimary"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:layout_below="@+id/textView5"
             android:layout_alignLeft="@+id/tv_to_go"
-            android:layout_alignStart="@+id/tv_to_go"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp" />
+            android:layout_alignStart="@+id/tv_to_go" />
 
         <Button
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:text="BACK TO LIST OF PARKS"
             android:id="@+id/button_back_park_list"
-            android:layout_alignBottom="@+id/button_view_campgrounds_list"
-            android:layout_alignRight="@+id/textView1"
-            android:layout_alignEnd="@+id/textView1"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:background="?attr/colorPrimary" />
+            android:background="?attr/colorPrimary"
+            android:layout_alignTop="@+id/button_view_campgrounds_list"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_alignStart="@+id/textView5"
+            android:layout_marginLeft="34dp"
+            android:layout_marginStart="34dp"
+            android:layout_alignRight="@+id/textView5"
+            android:layout_alignEnd="@+id/textView5" />
 
 
     </RelativeLayout>

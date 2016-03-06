@@ -37,7 +37,7 @@
         </ListView>
 
         <Button
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:id="@+id/button_write_review"
             android:text="@string/button_write_review"
@@ -48,7 +48,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="BACK TO CAMPGROUND INFORMATION"
             android:id="@+id/button_back_camp"
             android:background="?attr/colorPrimary"
@@ -56,7 +56,8 @@
             android:paddingRight="10dp"
             android:clickable="true"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp" />
     </RelativeLayout>
 
 
