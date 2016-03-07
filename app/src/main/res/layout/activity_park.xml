@@ -7,7 +7,7 @@
     android:id="@+id/layout_park"
     android:nestedScrollingEnabled="true"
     android:scrollIndicators="bottom|right"
-    android:background="#adb3b3">
+    android:background="#FFD2D2D2">
 
     <TextView
         android:layout_height="50dp"

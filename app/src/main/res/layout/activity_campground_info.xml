@@ -24,7 +24,7 @@
         android:layout_marginTop="90dp"
         android:scrollIndicators="bottom|right"
         android:nestedScrollingEnabled="true"
-        android:background="#adb3b3">
+        android:background="#FFD2D2D2">
 
         <TextView
             android:layout_width="wrap_content"

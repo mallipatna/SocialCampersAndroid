@@ -25,7 +25,7 @@
         android:scrollIndicators="bottom|right"
         android:layout_marginTop="130dp"
         android:nestedScrollingEnabled="true"
-        android:background="#adb3b3">
+        android:background="#FFD2D2D2">
 
 
 

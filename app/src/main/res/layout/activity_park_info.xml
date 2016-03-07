@@ -23,7 +23,7 @@
         android:overScrollMode="always"
         android:layout_marginTop="50dp"
         android:scrollIndicators="bottom|right"
-        android:background="#adb3b3">
+        android:background="#FFD2D2D2">
 
         <TextView
             android:layout_width="500dp"
