@@ -12,40 +12,49 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:id="@+id/campground_list_name"
-        android:background="?attr/colorPrimary"
+        android:background="#d28622"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:gravity="center">
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:typeface="serif">
     </TextView>
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="95dp"
+        android:layout_height="480dp"
+        android:layout_marginTop="90dp"
         android:scrollIndicators="bottom|right"
-        android:nestedScrollingEnabled="true">
+        android:nestedScrollingEnabled="true"
+        android:background="#adb3b3">
 
         <ListView
             android:layout_width="fill_parent"
-            android:layout_height="400dp"
+            android:layout_height="380dp"
             android:id="@+id/lv_campgrounds_list"
             style="@style/Base.TextAppearance.AppCompat.Button"
             android:layout_alignParentLeft="false"
             android:layout_alignParentStart="false"
             android:layout_alignParentTop="false"
-            android:scrollIndicators="bottom|right" />
+            android:scrollIndicators="bottom|right"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:background="#e5e4e4" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/button_back_park_info"
-            android:background="?attr/colorPrimary"
+            android:background="#d28622"
             android:text="BACK TO PARK INFORMATION"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:clickable="true"
             android:layout_below="@+id/lv_campgrounds_list"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:textColor="#ffffff"
+            android:typeface="serif" />
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

@@ -6,35 +6,20 @@
     android:layout_width="match_parent"
     android:id="@+id/layout_park"
     android:nestedScrollingEnabled="true"
-    android:scrollIndicators="bottom|right">
+    android:scrollIndicators="bottom|right"
+    android:background="#adb3b3">
 
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar_park"
-        android:layout_width="match_parent"
+    <TextView
         android:layout_height="50dp"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/title_activity_park"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_gravity="center_horizontal|center">
-        </TextView>
-
-    </android.support.v7.widget.Toolbar>
-
-    <ListView
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:id="@+id/list_view_park"
-        android:scrollbars="vertical"
-        android:clickable="true"
-        android:contextClickable="true"
-        android:layout_marginTop="50dp">
-    </ListView>
+        android:text="@string/title_activity_park"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_gravity="center|top"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="#d28622"
+        android:typeface="serif"
+        android:textColor="#ffffff">
+    </TextView>
 
     <Button
         android:layout_width="wrap_content"
@@ -42,19 +27,26 @@
         android:text="BACK TO LOGIN PAGE"
         android:id="@+id/button_back_main"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="10dp"
-        android:background="?attr/colorPrimary"
+        android:layout_marginBottom="25dp"
+        android:background="#d28622"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:clickable="true" />
+        android:clickable="true"
+        android:typeface="serif"
+        android:textColor="#ffffff" />
 
-    <!-- <ListView
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="250dp"></ListView>
-    -->
+        android:layout_height="440dp"
+        android:id="@+id/list_view_park"
+        android:scrollbars="vertical|horizontal"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:layout_marginTop="70dp"
+        android:scrollIndicators="bottom|right|top"
+        android:layout_gravity="center_horizontal|top"
+        android:background="#e5e4e4">
+    </ListView>
 
 </FrameLayout>
 

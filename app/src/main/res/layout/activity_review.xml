@@ -6,58 +6,79 @@
     android:fitsSystemWindows="true"
     tools:context=".ReviewActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:id="@+id/reviews_for"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:background="#d28622"
+        android:textAlignment="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#ffffff"
+        android:gravity="center_vertical|center_horizontal"
+        android:typeface="serif" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollIndicators="bottom|right"
-        android:nestedScrollingEnabled="true">
+        android:layout_marginTop="130dp"
+        android:nestedScrollingEnabled="true"
+        android:background="#adb3b3">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/reviews_for"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:background="?attr/colorPrimary"
-            android:textAlignment="center"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp" />
+
 
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             android:id="@+id/lv_review_list"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:scrollingCache="true"
             android:scrollIndicators="bottom|right"
-            android:layout_below="@+id/reviews_for"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#e5e4e4">
         </ListView>
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:id="@+id/button_write_review"
             android:text="@string/button_write_review"
-            android:background="?attr/colorPrimary"
-            android:padding="10dp"
+            android:background="#d28622"
             android:layout_below="@+id/lv_review_list"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#ffffff"
+            android:gravity="center_vertical|center_horizontal"
+            android:typeface="serif"
+            android:layout_above="@+id/button_back_camp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:text="BACK TO CAMPGROUND INFORMATION"
             android:id="@+id/button_back_camp"
-            android:background="?attr/colorPrimary"
+            android:background="#d28622"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:clickable="true"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#ffffff"
+            android:gravity="center_vertical|center_horizontal"
+            android:typeface="serif"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp" />
     </RelativeLayout>
 
 
