@@ -72,9 +72,7 @@ public class MainActivity extends Activity{
 
         });
 
-        if(accessToken!=null) {
 
-            btnClick.setVisibility(View.VISIBLE);
             btnClick.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -97,8 +95,6 @@ public class MainActivity extends Activity{
 
                 }
             });
-
-        }
 
     }
 
