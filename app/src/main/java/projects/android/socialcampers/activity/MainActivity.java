@@ -47,55 +47,49 @@ public class MainActivity extends Activity{
         final Button btnClick = (Button) findViewById(R.id.button_click_continue);
 
         fb_login.setReadPermissions("me");
-            fb_login.setReadPermissions("user_friends");
+        fb_login.setReadPermissions("user_friends");
 
-            fb_login.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        fb_login.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
 
-                @Override
-                public void onSuccess(LoginResult loginResult) {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                login_result.setText("Login success");
+                btnClick.setClickable(true);
+            }
 
-                    login_result.setText("Login success");
+            @Override
+            public void onCancel() {
+                login_result.setText("Login cancelled\nCan't proceed");
+            }
 
-                    btnClick.setClickable(true);
-
-                }
-
-                @Override
-                public void onCancel() {
-                    login_result.setText("Login cancelled\nCan't proceed");
-                }
-
-                @Override
-                public void onError(FacebookException error) {
-                    login_result.setText(error.toString());
+            @Override
+            public void onError(FacebookException error) {
+                login_result.setText(error.toString());
             }
 
         });
 
-
-            btnClick.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String userID = AccessToken.getCurrentAccessToken().getUserId();
-                    String authToken = AccessToken.getCurrentAccessToken().getToken();
-                    Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
-                    Profile profile = Profile.getCurrentProfile();
-                    if (profile != null) {
-                        String username = profile.getFirstName() + " " + profile.getLastName();
-                        intent.putExtra("username", username);
-                        login_result.setText("Logged in user: "+username);
-                        Toast.makeText(getApplicationContext(),username, Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getApplicationContext(), " ", Toast.LENGTH_LONG).show();
-                    }
-                    intent.putExtra("userID", userID);
-                    intent.putExtra("authToken", authToken);
-
-                    startActivity(intent);
-
+        btnClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userID = AccessToken.getCurrentAccessToken().getUserId();
+                String authToken = AccessToken.getCurrentAccessToken().getToken();
+                Intent intent = new Intent(getApplicationContext(), ParkActivity.class);
+                Profile profile = Profile.getCurrentProfile();
+                if (profile != null) {
+                    String username = profile.getFirstName() + " " + profile.getLastName();
+                    intent.putExtra("username", username);
+                    login_result.setText("Logged in user: "+username);
+                    Toast.makeText(getApplicationContext(),username, Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), " ", Toast.LENGTH_LONG).show();
                 }
-            });
 
+                intent.putExtra("userID", userID);
+                intent.putExtra("authToken", authToken);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

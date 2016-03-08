@@ -1,14 +1,22 @@
 package projects.android.socialcampers.activity;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 
 import projects.android.socialcampers.DBOperations.GetCampground;
 
@@ -16,12 +24,16 @@ public class CampgroundInfoActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState){
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_campground_info);
+
         Intent intent = getIntent();
         final String campgroundName = intent.getExtras().getString("campgroundname");
         final String parkName = intent.getExtras().getString("parkname");
         final String username = intent.getExtras().getString("username");
+        final String userId = intent.getExtras().getString("userId");
+        final String authToken = intent.getExtras().getString("authToken");
 
         TextView tv_campground_name = (TextView) findViewById(R.id.campground_name_info);
         tv_campground_name.setText(campgroundName.toUpperCase() + " CAMPGROUND DETAILS\n" + parkName.toUpperCase());
@@ -249,10 +261,12 @@ public class CampgroundInfoActivity extends Activity {
                 // Get parkName and campgroundName and pass on to next (Review) activity
                 Intent intent1 = new Intent(getApplicationContext(), ReviewActivity.class);
                 intent1.putExtra("parkName", parkName);
-                intent1.putExtra("campgroundName",campgroundName);
-                intent1.putExtra("username",username);
-                Toast.makeText(getApplicationContext(), "Reviews for "+ campgroundName +
-                        " Campground\n"+ parkName ,Toast.LENGTH_LONG).show();
+                intent1.putExtra("campgroundName", campgroundName);
+                intent1.putExtra("username", username);
+                intent1.putExtra("userId", userId);
+                intent1.putExtra("authToken", authToken);
+                Toast.makeText(getApplicationContext(), "Reviews for " + campgroundName +
+                        " Campground\n" + parkName, Toast.LENGTH_LONG).show();
                 startActivity(intent1);
             }
         });
@@ -266,10 +280,43 @@ public class CampgroundInfoActivity extends Activity {
                 intent2.putExtra("parkname",parkName);
                 intent2.putExtra("campgroundname",campgroundName);
                 intent2.putExtra("username",username);
+                intent2.putExtra("userId",userId);
+                intent2.putExtra("authToken", authToken);
                 startActivity(intent2);
             }
         });
 
+        // On click recommend to a friend using FB api
+/*
+        Button button2 = (Button) findViewById(R.id.button_fb_share);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AsyncTask<Void,Void,Void> fb_task = new AsyncTask<Void,Void,Void>() {
+
+                    @Override
+                    protected Void doInBackground(Void... params){
+
+                        FacebookSdk.sdkInitialize(getApplicationContext());
+                        //CallbackManager callbackManager = CallbackManager.Factory.create();
+                        ShareDialog shareDialog = new ShareDialog(get);
+                        if(ShareDialog.canShow(ShareLinkContent.class)){
+                            ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                                    .setContentTitle("Hello facebook")
+                                    .setContentDescription("Implementing facebook share")
+                                    .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
+                                    .build();
+                            shareDialog.show(linkContent);
+                        }
+                        return null;
+                    }
+
+                };
+                fb_task.execute();
+            }
+
+        });
+*/
     }
 
 }

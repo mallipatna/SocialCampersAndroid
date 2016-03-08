@@ -28,6 +28,8 @@ public class ReviewActivity extends Activity {
         final String parkName = intent.getExtras().getString("parkName");
         final String campgroundName = intent.getExtras().getString("campgroundName");
         final String username = intent.getExtras().getString("username");
+        final String userId = intent.getExtras().getString("userId");
+        final String authToken = intent.getExtras().getString("authToken");
 
         TextView textView_parkName = (TextView) findViewById(R.id.reviews_for);
         textView_parkName.setText("LIST OF REVIEWS FOR\n"+campgroundName.toUpperCase()+" CAMPGROUND\n"+parkName.toUpperCase());
@@ -99,6 +101,8 @@ public class ReviewActivity extends Activity {
                 intent2.putExtra("parkname",parkName);
                 intent2.putExtra("campgroundname",campgroundName);
                 intent2.putExtra("username",username);
+                intent2.putExtra("userId",userId);
+                intent2.putExtra("authToken",authToken);
                 startActivity(intent2);
             }
         });

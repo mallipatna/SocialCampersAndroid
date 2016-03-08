@@ -33,6 +33,8 @@ public class ParkInfoActivity extends Activity {
         final Intent intent = getIntent();
         final String parkname = intent.getExtras().getString("parkname");
         final String username = intent.getExtras().getString("username");
+        final String userId = intent.getExtras().getString("userId");
+        final String authToken = intent.getExtras().getString("authToken");
 
         TextView parknameininfo = (TextView) findViewById(R.id.park_name_in_info);
         parknameininfo.setText(parkname.toUpperCase());
@@ -58,11 +60,8 @@ public class ParkInfoActivity extends Activity {
 
         // Set the output to textview within ScrollView in layout
         TextView aboutview = (TextView) findViewById(R.id.textView1);
-        //aboutview.setText(about);
         aboutview.setMovementMethod(new ScrollingMovementMethod());
         aboutview.append("\n"+about);
-        //ScrollView aboutScrollView = (ScrollView) findViewById(R.id.ScrollView1);
-        //aboutScrollView.addView(aboutview);
 
         // Get location for parkname
         AsyncTask<Void,Void,String> task2 = new AsyncTask<Void, Void, String>() {
@@ -130,9 +129,6 @@ public class ParkInfoActivity extends Activity {
         }
 
         // Set the output to textview in layout
-
-        // Set the output to textview within ScrollView in layout
-        //ScrollView thingsToDoScrollView = (ScrollView) findViewById(R.id.ScrollView4);
         TextView thingsToDoview = (TextView) findViewById(R.id.textView4);
         thingsToDoview.setMovementMethod(new ScrollingMovementMethod());
         thingsToDoview.append(thingsToDo+"\n" );
@@ -157,7 +153,6 @@ public class ParkInfoActivity extends Activity {
         }
 
         // Set the output to textview in layout
-        //ScrollView placesToGoScrollview = (ScrollView) findViewById(R.id.ScrollView5);
         TextView placesToGoview = (TextView) findViewById(R.id.textView5);
         placesToGoview.setMovementMethod(new ScrollingMovementMethod());
         placesToGoview.append(placesToGo + "\n");
@@ -171,6 +166,8 @@ public class ParkInfoActivity extends Activity {
                 Intent intent1 = new Intent(getApplicationContext(), CampgroundListActivity.class);
                 intent1.putExtra("parkname", parkname);
                 intent1.putExtra("username",username);
+                intent1.putExtra("userId",userId);
+                intent1.putExtra("authToken",authToken);
                 Toast.makeText(getApplicationContext(), parkname, Toast.LENGTH_SHORT).show();
                 startActivity(intent1);
 
@@ -185,6 +182,8 @@ public class ParkInfoActivity extends Activity {
                 Intent intent2 = new Intent(getApplicationContext(),ParkActivity.class);
                 intent2.putExtra("parkname",parkname);
                 intent2.putExtra("username",username);
+                intent2.putExtra("userId",userId);
+                intent2.putExtra("authToken",authToken);
                 startActivity(intent2);
             }
         });

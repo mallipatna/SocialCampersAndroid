@@ -36,24 +36,7 @@ public class ParkActivity extends Activity {
         final String userId = intent.getExtras().getString("userID");
         final String authToken = intent.getExtras().getString("authToken");
         Profile profile = Profile.getCurrentProfile();
-        // final String username = intent.getExtras().getString("username");
-       final String username = profile.getFirstName() + " " + profile.getLastName();
-        /* make the API call
-        new GraphRequest(
-                AccessToken.getCurrentAccessToken(),
-                "/{userId}/friendlists",
-                null,
-                HttpMethod.GET,
-                new GraphRequest.Callback() {
-                    public void onCompleted(GraphResponse response) {
-
-                        
-                    }
-                }
-        ).executeAsync();
-        */
-
-        // TODO: Populate list with user's friends from Facebook
+        final String username = profile.getFirstName() + " " + profile.getLastName();
 
         // Populate list with parks from DynamoDB
         AsyncTask<Void,Void,List<String>> task = new AsyncTask<Void, Void, List<String>>() {
@@ -99,6 +82,8 @@ public class ParkActivity extends Activity {
                 Intent intent1 = new Intent(view.getContext(), ParkInfoActivity.class);
                 intent1.putExtra("parkname",tag);
                 intent1.putExtra("username",username);
+                intent1.putExtra("userId",userId);
+                intent1.putExtra("authToken",authToken);
                 Toast.makeText(getApplicationContext(), tag + "\nUser: " + username , Toast.LENGTH_LONG).show();
                 startActivity(intent1);
             }

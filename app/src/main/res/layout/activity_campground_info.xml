@@ -196,7 +196,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="RV Hookup"
+            android:text="RV Sites"
             android:id="@+id/label_rv_hookup"
             android:layout_below="@+id/label_shower"
             android:layout_alignRight="@+id/label_num_campsites"
@@ -304,8 +304,20 @@
             android:textColor="#030303"
             android:typeface="serif"
             android:padding="2dp" />
+<!--
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:id="@+id/button_fb_share"
+            android:layout_above="@+id/button_back_camp_list"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/button_back_camp_list"
+            android:layout_toEndOf="@+id/button_back_camp_list"
+            android:clickable="true" />
 
-
+-->
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

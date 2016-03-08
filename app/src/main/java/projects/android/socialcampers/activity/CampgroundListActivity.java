@@ -29,6 +29,8 @@ public class CampgroundListActivity extends Activity {
         Intent intent = getIntent();
         final String parkname = intent.getExtras().getString("parkname");
         final String username = intent.getExtras().getString("username");
+        final String userId = intent.getExtras().getString("userId");
+        final String authToken = intent.getExtras().getString("authToken");
 
         TextView textView = (TextView) findViewById(R.id.campground_list_name);
         textView.setText("LIST OF CAMPGROUNDS IN\n" + parkname.toUpperCase());
@@ -77,6 +79,8 @@ public class CampgroundListActivity extends Activity {
                 intent1.putExtra("parkname", parkname);
                 intent1.putExtra("campgroundname", tag);
                 intent1.putExtra("username", username);
+                intent1.putExtra("userId",userId);
+                intent1.putExtra("authToken",authToken);
                 Toast.makeText(getApplicationContext(), "Information for " +
                         tag + " Campground,\n" + parkname, Toast.LENGTH_LONG).show();
                 startActivity(intent1);
@@ -92,6 +96,8 @@ public class CampgroundListActivity extends Activity {
                 Intent intent2 = new Intent(getApplicationContext(), ParkInfoActivity.class);
                 intent2.putExtra("parkname", parkname);
                 intent2.putExtra("username", username);
+                intent2.putExtra("userId",userId);
+                intent2.putExtra("authToken",authToken);
                 startActivity(intent2);
             }
         });
